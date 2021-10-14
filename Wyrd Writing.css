@@ -1,0 +1,119 @@
+/**
+  Some notes on this theme:
+  - 
+ */
+
+/**
+  Color palette
+ */
+:root {
+  /* Colors */
+  --color-blacker-hsl: hsl(270, 10%, 5%);
+  --color-blacker-hsl: 270, 10%, 5%;
+  --color-black-hsl: hsl(270, 10%, 10%);
+  --color-black-hsl: 270, 10%, 10%;
+  --color-grey-00: hsl(270, 10%, 12.5%); /* dark mode */
+  --color-grey-01: hsl(270, 10%, 15%);
+  --color-grey-02: hsl(270, 10%, 17.5%);
+  --color-grey-03: hsl(270, 10%, 20%);
+  --color-grey-04: hsl(270, 8%, 30%); /* text */
+  --color-grey-05: hsl(270, 8%, 50%);
+  --color-grey-06: hsl(270, 13%, 70%);
+  --color-grey-07: hsl(270, 10%, 72.5%); /* light mode */
+  --color-grey-08: hsl(270, 10%, 75%);
+  --color-grey-09: hsl(270, 10%, 77.5%);
+  --color-grey-10: hsl(270, 10%, 80%);
+  
+  --color-hot-pink: hsl(330, 85%, 47.2%);
+  
+  --color-red-pink: hsl(340, 85%, 48.3%);
+
+  --color-shadowy-gold: hsl(44, 100%, 29.3%);
+  
+  --color-green: hsla(80, 70%, 28.5%, 0.95);
+  --color-green-hsl: 80, 70%, 28.5%;
+  
+  --color-teal: hsl(165, 100%, 26%);
+  
+  --color-cyan: hsla(175, 100%, 50%);
+  --color-cyan-hsl: 175, 100%, 50%;
+  --color-cyan-desat: hsla(175, 45%, 50%);
+  --color-cyan-desat-hsl: 175, 45%, 50%;
+  
+  --color-deep-indigo: hsl(250, 80%, 3.5%);
+  --color-deep-indigo-hsl: 250, 80%, 3.5%;
+
+  --color-deep-purple: hsl(270, 100%, 10%);
+  --color-deep-purple-hsl: 270, 100%, 10%;
+  --color-purple-1: hsl(270, 60%, 40%);
+  --color-purple-2: hsl(270, 60%, 45%);
+  --color-purple-3: hsl(270, 65%, 58.8%);
+  --color-purple-4: hsl(270, 100%, 61.5%);
+  --color-pale-purle: hsl(270, 100%, 70%);
+  --color-pale-purle-hsl: 270, 100%, 70%;
+}
+
+/**
+  Dark Mode defaults
+ */
+.theme-dark {
+  --background-primary: var(--color-grey-03);
+  --background-primary-alt: var(--color-grey-02);
+  --background-secondary: var(--color-grey-01);
+  --background-secondary-alt: var(--color-grey-00);
+  --text-normal: var(--color-grey-06);
+  --text-muted: var(--color-grey-05);
+  --text-muted-rgb: 77, 70, 83;
+  --text-faint: var(--color-grey-04);
+  --text-on-accent: var(--text-normal);
+  --scrollbar-hsl: var(--color-deep-purple-hsl);
+}
+
+/**
+Light Mode defaults
+*/
+.theme-light {
+  --background-primary: var(--color-grey-10);
+  --background-primary-alt: var(--color-grey-09);
+  --background-secondary: var(--color-grey-08);
+  --background-secondary-alt: var(--color-grey-07);
+  --text-normal: var(--color-grey-04);
+  --text-muted: var(--color-grey-05);
+  --text-muted-rgb: 77, 70, 83;
+  --text-faint: var(--color-grey-06);
+  --text-on-accent: var(--text-faint);
+  --scrollbar-hsl: var(--color-pale-purle-hsl);
+}
+
+/**
+  Mixed defaults
+ */
+.theme-dark,
+.theme-light {
+  --background-modifier-border: var(--color-shadowy-gold);
+  --background-modifier-form-field: hsla(var(--color-black-hsl), 0.3);
+  --background-modifier-form-field-highlighted: hsla(var(--color-blacker-hsl), 0.22);
+  --background-modifier-box-shadow: hsla(var(--color-black-hsl), 0.3);
+  --background-modifier-success: var(--color-teal);
+  --background-modifier-error: var(--color-hot-pink);
+  --background-modifier-error-rgb: 223, 18, 120;
+  --background-modifier-error-hover: var(--color-red-pink);
+  --background-modifier-cover: hsl(var(--color-deep-indigo-hsl), 0.8);
+  --text-accent: var(--color-purple-3);
+  --text-accent-hover: var(--color-purple-4);
+  --text-error: var(--color-hot-pink);
+  --text-error-hover: var(--color-red-pink);
+  --text-highlight-bg: hsla(var(--color-cyan-desat-hsl), 0.6);
+  --text-highlight-bg-active: hsla(var(--color-cyan-hsl), 0.4);
+  --text-selection: hsla(var(--color-green-hsl), 0.95);
+  --interactive-normal: var(--color-grey-01);
+  --interactive-hover: var(--color-grey-02);
+  --interactive-accent: var(--color-purple-1);
+  --interactive-accent-rgb: 102, 41, 163;
+  --interactive-accent-hover: var(--color-purple-2);
+  --interactive-success: var(--color-teal);
+  --scrollbar-active-thumb-bg: hsla(var(--scrollbar-hsl), 0.2);
+  --scrollbar-bg: hsla(var(--scrollbar-hsl), 0.05);
+  --scrollbar-thumb-bg: hsla(var(--scrollbar-hsl), 0.1);
+  --highlight-mix-blend-mode: lighten;
+}
