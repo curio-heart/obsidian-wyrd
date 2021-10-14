@@ -1,5 +1,4 @@
 /**
-  Some notes on this theme:
   - 
  */
 
@@ -16,9 +15,9 @@
   --color-grey-01: hsl(270, 10%, 15%);
   --color-grey-02: hsl(270, 10%, 17.5%);
   --color-grey-03: hsl(270, 10%, 20%);
-  --color-grey-04: hsl(270, 8%, 30%); /* text */
+  --color-grey-04: hsl(270, 8%, 35%); /* text */
   --color-grey-05: hsl(270, 8%, 50%);
-  --color-grey-06: hsl(270, 13%, 70%);
+  --color-grey-06: hsl(270, 13%, 65%);
   --color-grey-07: hsl(270, 10%, 72.5%); /* light mode */
   --color-grey-08: hsl(270, 10%, 75%);
   --color-grey-09: hsl(270, 10%, 77.5%);
