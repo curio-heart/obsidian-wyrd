@@ -3,10 +3,29 @@
  */
 
 /**
-  Color palette
+  Font imports
+ */
+/* Preview: Neucha */
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+/* Edit:  */
+/* Monospace: Space Mono — NOT SELECTED FOR LIGATURES */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* Headings: Birthstone */
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
+/**
+  Core Defaults
  */
 :root {
-  /* Colors */
+  /* Fonts */
+  --default-font: Neucha, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+  --mermaid-font: var(--default-font);
+  --reveal-font: var(--default-font);
+  --font-monospace: 'Space Mono', 'Source Code Pro', monospace;
+  --font-heading: Birthstone;
+  /* Only active within Publish spaces; body styling overrides this within Obsidian */
+  --editor-font-size: 16px;
+
+  /* Color Palette */
   --color-blacker-hsl: hsl(270, 10%, 5%);
   --color-blacker-hsl: 270, 10%, 5%;
   --color-black-hsl: hsl(270, 10%, 10%);
@@ -115,4 +134,58 @@ Light Mode defaults
   --scrollbar-bg: hsla(var(--scrollbar-hsl), 0.05);
   --scrollbar-thumb-bg: hsla(var(--scrollbar-hsl), 0.1);
   --highlight-mix-blend-mode: lighten;
+}
+/* Preview */
+.markdown-preview-view {
+  font-size: var(--editor-font-size);
+}
+/* Preview — Headings */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+  font-family: var(--font-heading);
+}
+.markdown-preview-view h1 {
+  font-size: calc(var(--editor-font-size) * 2.5);
+}
+.markdown-preview-view h2 {
+  font-size: calc(var(--editor-font-size) * 2.1);
+}
+.markdown-preview-view h3 {
+  font-size: calc(var(--editor-font-size) * 1.8);
+}
+.markdown-preview-view h4 {
+  font-size: calc(var(--editor-font-size) * 1.55);
+}
+.markdown-preview-view h5 {
+  font-size: calc(var(--editor-font-size) * 1.35);
+}
+.markdown-preview-view h6 {
+  font-size: calc(var(--editor-font-size) * 1.2);
+}
+
+/* Edit — Headings */
+.cm-s-obsidian .HyperMD-header {
+  font-family: var(--font-heading) !important;
+}
+.cm-s-obsidian .HyperMD-header-1 {
+  font-size: calc(var(--editor-font-size) * 1.6);
+}
+.cm-s-obsidian .HyperMD-header-2 {
+  font-size: calc(var(--editor-font-size) * 1.5);
+}
+.cm-s-obsidian .HyperMD-header-3 {
+  font-size: calc(var(--editor-font-size) * 1.4);
+}
+.cm-s-obsidian .HyperMD-header-4 {
+  font-size: calc(var(--editor-font-size) * 1.3);
+}
+.cm-s-obsidian .HyperMD-header-5 {
+  font-size: calc(var(--editor-font-size) * 1.2);
+}
+.cm-s-obsidian .HyperMD-header-6 {
+  font-size: calc(var(--editor-font-size) * 1.1);
 }
