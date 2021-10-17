@@ -12,6 +12,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 /* Headings: Birthstone */
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
+
+/**
+  Custom list counters
+ */
+@counter-style wyrd {
+  system: cyclic;
+  symbols: "\2192";
+  suffix: " ";
+}
+
 /**
   Core Defaults
  */
@@ -47,6 +57,7 @@
   --color-red-pink: hsl(340, 85%, 48.3%);
 
   --color-shadowy-gold: hsl(44, 100%, 29.3%);
+  --color-magic-gold: hsl(37, 100%, 40%);
   
   --color-green: hsla(80, 70%, 28.5%, 0.95);
   --color-green-hsl: 80, 70%, 28.5%;
@@ -168,11 +179,11 @@ Light Mode defaults
   background: linear-gradient(90deg, var(--color-purple-3), var(--color-purple-3) 25%, #00000000 50%);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 2px;
-  bottom: 0.95rem;
+  bottom: calc(var(--editor-font-size) - calc(var(--editor-font-size) / 4.75));
   left: -0.25rem;
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.25rem;
+  height: calc(var(--editor-font-size) / 4);
   z-index: 0;
 }
 .markdown-preview-view h2 {
@@ -187,11 +198,11 @@ Light Mode defaults
   background: linear-gradient(90deg, var(--color-hot-pink), var(--color-hot-pink) 25%, #00000000 50%);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 1px;
-  bottom: 0.82rem;
+  bottom: calc(var(--editor-font-size) - calc(var(--editor-font-size) / 3.1));
   left: -0.25rem;
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.22rem;
+  height: calc(var(--editor-font-size) / 5);
   z-index: 0;
 }
 .markdown-preview-view h3 {
@@ -206,11 +217,11 @@ Light Mode defaults
   background: linear-gradient(90deg, var(--color-shadowy-gold), var(--color-shadowy-gold) 25%, #00000000 50%);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 1px;
-  bottom: 0.70rem;
+  bottom: calc(var(--editor-font-size) - calc(var(--editor-font-size) / 2.4));
   left: -0.25rem;
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.19rem;
+  height: calc(var(--editor-font-size) / 6);
   z-index: 0;
 }
 .markdown-preview-view h4 {
@@ -225,11 +236,11 @@ Light Mode defaults
   background: linear-gradient(90deg, var(--color-green), var(--color-green) 25%, #00000000 50%);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 0;
-  bottom: 0.58rem;
+  bottom: calc(var(--editor-font-size) - calc(var(--editor-font-size) / 1.85));
   left: -0.25rem;
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.16rem;
+  height: calc(var(--editor-font-size) / 7);
   z-index: 0;
 }
 .markdown-preview-view h5 {
@@ -244,11 +255,11 @@ Light Mode defaults
   background: linear-gradient(90deg, var(--color-teal), var(--color-teal) 25%, #00000000 50%);
   border-top-left-radius: 3px;
   border-bottom-left-radius: 0;
-  bottom: 0.47rem;
+  bottom: calc(var(--editor-font-size) - calc(var(--editor-font-size) / 1.75));
   left: -0.25rem;
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.145rem;
+  height: calc(var(--editor-font-size) / 8);
   z-index: 0;
 }
 .markdown-preview-view h6 {
@@ -263,11 +274,11 @@ Light Mode defaults
   background: linear-gradient(90deg, var(--color-cyan-desat), var(--color-cyan-desat) 25%, #00000000 50%);
   border-top-left-radius: 3px;
   border-bottom-left-radius: 0;
-  bottom: 0.45rem;
+  bottom: calc(var(--editor-font-size) - calc(var(--editor-font-size) / 1.6));
   left: -0.25rem;
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.12rem;
+  height: calc(var(--editor-font-size) / 9);
   z-index: 0;
 }
 /* Preview — Text */
@@ -286,6 +297,126 @@ strong em,
 .markdown-preview-view em strong,
 .markdown-preview-view strong em {
   -webkit-text-stroke-width: 0.05px;
+}
+del {
+  color: var(--text-muted);
+  text-decoration-color: var(--color-red-pink);
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
+}
+blockquote,
+.markdown-preview-view blockquote {
+  border: 0;
+  border-radius: 0.5rem;
+  border-left: 5px solid var(--color-purple-3);
+  border-right: 1px solid var(--color-purple-3);
+  box-shadow: 0 0 1px var(--color-magic-gold),
+              0 0 2px var(--color-magic-gold);
+  transition: box-shadow 0.5s ease-in-out;
+}
+blockquote:hover,
+.markdown-preview-view blockquote:hover {
+  box-shadow: 0 0 1px var(--color-magic-gold),
+              0 0 2px var(--color-magic-gold),
+              0 0 4px var(--color-magic-gold),
+              0 0 8px var(--color-magic-gold),
+              0 0 2px var(--color-deep-indigo),
+              0 0 4px var(--color-deep-indigo),
+              0 0 8px var(--color-deep-indigo),
+              0 0 16px var(--color-deep-indigo);
+}
+blockquote blockquote,
+.markdown-preview-view blockquote blockquote {
+  border-color: var(--color-red-pink);
+}
+blockquote blockquote blockquote,
+.markdown-preview-view blockquote blockquote blockquote {
+  border-color: var(--color-shadowy-gold);
+}
+blockquote blockquote blockquote blockquote,
+.markdown-preview-view blockquote blockquote blockquote blockquote {
+  border-color: var(--color-green);
+}
+blockquote blockquote blockquote blockquote blockquote,
+.markdown-preview-view blockquote blockquote blockquote blockquote blockquote {
+  border-color: var(--color-teal);
+}
+blockquote blockquote blockquote blockquote blockquote blockquote,
+.markdown-preview-view blockquote blockquote blockquote blockquote blockquote blockquote {
+  border-color: var(--color-cyan-desat);
+}
+/* Preview — Lists */
+ul, ol {
+  padding-inline-start: 15px;
+}
+ul li p,
+ol li p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+::marker {
+  position: relative;
+  text-align: right;
+}
+/* Preview — Lists, Unordered */
+ul,
+ul ul,
+ul ul ul,
+ul ul ul ul,
+ul ul ul ul ul,
+ul ul ul ul ul ul {
+  list-style-type: '\2192';
+}
+li {
+  /* padding: 0.5rem; */
+  border-radius: 0.25rem;
+  padding-left: 0.6rem;
+  transition: box-shadow 0.5s ease-in-out;
+}
+li:hover {
+  box-shadow: 0 0 1px var(--color-magic-gold),
+              0 0 2px var(--color-magic-gold),
+              0 0 4px var(--color-magic-gold),
+              0 0 2px var(--color-deep-indigo),
+              0 0 4px var(--color-deep-indigo),
+              0 0 8px var(--color-deep-indigo)
+}
+ul li::marker {
+  color: var(--color-purple-3);
+}
+ul ul li::marker {
+  color: var(--color-hot-pink);
+}
+ul ul ul li::marker {
+  color: var(--color-shadowy-gold);
+}
+ul ul ul ul li::marker {
+  color: var(--color-green);
+}
+ul ul ul ul ul li::marker {
+  color: var(--color-teal);
+}
+ul ul ul ul ul ul li::marker {
+  color: var(--color-cyan-desat);
+}
+/* Preview — Lists, Ordered */
+ol li::marker {
+  color: var(--color-purple-3);
+}
+ol ol li::marker {
+  color: var(--color-hot-pink);
+}
+ol ol ol li::marker {
+  color: var(--color-shadowy-gold);
+}
+ol ol ol ol li::marker {
+  color: var(--color-green);
+}
+ol ol ol ol ol li::marker {
+  color: var(--color-teal);
+}
+ol ol ol ol ol ol li::marker {
+  color: var(--color-cyan-desat);
 }
 
 /* Edit — Headings */
@@ -407,7 +538,7 @@ strong em,
   z-index: -1;
 }
 /* Edit — Formatting marks */
-.cm-s-obsidian .cm-formatting {
+.cm-s-obsidian .cm-formatting-header {
   font-size: 1rem;
 }
 /* Edit — Text */
@@ -426,4 +557,12 @@ strong em,
 .cm-s-obsidian .cm-em .cm-strong,
 .cm-s-obsidian .cm-strong .cm-em {
   -webkit-text-stroke-width: 0.05px;
+}
+
+.cm-strikethrough,
+.cm-s-obsidian .cm-strikethrough {
+  color: var(--text-muted);
+  text-decoration-color: var(--color-red-pink);
+  text-decoration-style: wavy;
+  text-decoration-thickness: 1px;
 }
