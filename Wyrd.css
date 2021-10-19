@@ -477,7 +477,9 @@ ol ol ol ol ol ol li::marker {
 
 
 /* Edit */
-
+/* .cm-s-obsidian {
+  overflow-x: visible;
+} */
 /* Edit — Headings */
 .cm-s-obsidian .cm-header {
   font-family: var(--font-heading);
@@ -600,7 +602,52 @@ ol ol ol ol ol ol li::marker {
   font-size: 1rem;
 }
 /* Edit — Text */
-/* Edit — Text — Bold, Italic */
+/* Edit — Text — Active Line */
+.CodeMirror-activeline .CodeMirror-activeline-background::before {
+  content: ' ';
+  /* border: 1px solid var(--color-grey-05); */
+  background: transparent;
+  height: 1.1rem;
+  left: 0.5rem;
+  opacity: 0.35;
+  position: absolute;
+  top: 0.2rem;
+  width: 1.1rem;
+  box-shadow: 0 1px 1px var(--color-magic-gold) inset,
+              0 1px 2px var(--color-magic-gold) inset,
+              0 1px 4px var(--color-magic-gold) inset,
+              0 1px 8px var(--color-magic-gold) inset,
+              0 1px 1px var(--color-green),
+              0 1px 2px var(--color-green),
+              0 1px 4px var(--color-green);
+  animation: activeline-r1 45s linear 0s infinite;
+}
+.CodeMirror-activeline .CodeMirror-activeline-background::after {
+  content: ' ';
+  /* border: 1px solid var(--color-grey-05); */
+  background: transparent;
+  height: 1.1rem;
+  left: 0.5rem;
+  opacity: 0.35;
+  position: absolute;
+  top: 0.2rem;
+  width: 1.1rem;
+  transform: rotate(30deg);
+  box-shadow: 0 1px 1px var(--color-teal) inset,
+              0 1px 2px var(--color-teal) inset,
+              0 1px 4px var(--color-teal) inset,
+              0 1px 8px var(--color-teal) inset,
+              0 1px 1px var(--color-shadowy-gold),
+              0 1px 2px var(--color-shadowy-gold),
+              0 1px 4px var(--color-shadowy-gold);
+  animation: activeline-r2 60s linear 0s infinite;
+}
+/** 
+  Edit — Text — Bold, Italic
+  
+  Need:
+  - Underline
+ */
 .cm-em,
 .cm-s-obsidian .cm-em {
   -webkit-text-stroke-color: var(--color-italic);
@@ -625,7 +672,7 @@ ol ol ol ol ol ol li::marker {
   text-decoration-style: wavy;
   text-decoration-thickness: 1px;
 }
-/* Preview — Text — Blockquotes */
+/* Edit — Text — Blockquotes */
 /* .HyperMD-quote,
 .cm-s-obsidian .HyperMD-quote {
   margin-bottom: 0.5rem;
@@ -743,4 +790,24 @@ span.cm-formatting-quote-6,
 .cm-s-obsidian span.cm-url {
   text-decoration-line: underline;
   text-decoration-color: var(--color-shadowy-gold);
+}
+
+@keyframes activeline-r1 {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(1.5turn);
+  }
+}
+
+@keyframes activeline-r2 {
+  from {
+    transform: rotate(0.083turn);
+  }
+
+  to {
+    transform: rotate(-2.917turn);
+  }
 }
