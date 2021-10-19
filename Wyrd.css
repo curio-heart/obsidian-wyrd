@@ -57,7 +57,7 @@
   --color-red-pink: hsl(340, 85%, 48.3%);
 
   --color-shadowy-gold: hsl(44, 100%, 29.3%);
-  --color-magic-gold: hsl(37, 100%, 40%);
+  --color-magic-gold: hsl(37, 100%, 50%);
   
   --color-green: hsla(80, 70%, 28.5%, 0.95);
   --color-green-hsl: 80, 70%, 28.5%;
@@ -167,7 +167,9 @@ Light Mode defaults
   width: 100%;
   z-index: 1;
 }
-.markdown-preview-view h1 {
+.markdown-preview-view h1,
+.markdown-preview-view h1 a
+{
   font-size: calc(var(--editor-font-size) * 2.5);
   background: linear-gradient(180deg, var(--text-normal), var(--text-normal) 55%, var(--color-purple-3) 70%);
   background-clip: text;
@@ -186,7 +188,8 @@ Light Mode defaults
   height: calc(var(--editor-font-size) / 4);
   z-index: 0;
 }
-.markdown-preview-view h2 {
+.markdown-preview-view h2,
+.markdown-preview-view h2 a {
   font-size: calc(var(--editor-font-size) * 2.1);
   background: linear-gradient(180deg, var(--text-normal), var(--text-normal) 55%, var(--color-hot-pink) 70%);
   background-clip: text;
@@ -205,7 +208,8 @@ Light Mode defaults
   height: calc(var(--editor-font-size) / 5);
   z-index: 0;
 }
-.markdown-preview-view h3 {
+.markdown-preview-view h3,
+.markdown-preview-view h3 a {
   font-size: calc(var(--editor-font-size) * 1.8);
   background: linear-gradient(180deg, var(--text-normal), var(--text-normal) 55%, var(--color-shadowy-gold) 70%);
   background-clip: text;
@@ -224,7 +228,8 @@ Light Mode defaults
   height: calc(var(--editor-font-size) / 6);
   z-index: 0;
 }
-.markdown-preview-view h4 {
+.markdown-preview-view h4,
+.markdown-preview-view h4 a {
   font-size: calc(var(--editor-font-size) * 1.55);
   background: linear-gradient(180deg, var(--text-normal), var(--text-normal) 55%, var(--color-green) 70%);
   background-clip: text;
@@ -243,7 +248,8 @@ Light Mode defaults
   height: calc(var(--editor-font-size) / 7);
   z-index: 0;
 }
-.markdown-preview-view h5 {
+.markdown-preview-view h5,
+.markdown-preview-view h5 a {
   font-size: calc(var(--editor-font-size) * 1.35);
   background: linear-gradient(180deg, var(--text-normal), var(--text-normal) 55%, var(--color-teal) 70%);
   background-clip: text;
@@ -262,7 +268,8 @@ Light Mode defaults
   height: calc(var(--editor-font-size) / 8);
   z-index: 0;
 }
-.markdown-preview-view h6 {
+.markdown-preview-view h6,
+.markdown-preview-view h6 a {
   font-size: calc(var(--editor-font-size) * 1.2);
   background: linear-gradient(180deg, var(--text-normal), var(--text-normal) 55%, var(--color-cyan-desat) 70%);
   background-clip: text;
@@ -282,6 +289,7 @@ Light Mode defaults
   z-index: 0;
 }
 /* Preview — Text */
+/* Preview — Text — Bold, Italic */
 em,
 .markdown-preview-view em {
   -webkit-text-stroke-color: var(--color-italic);
@@ -298,32 +306,38 @@ strong em,
 .markdown-preview-view strong em {
   -webkit-text-stroke-width: 0.05px;
 }
+/* Preview — Text — Strikethrough */
 del {
   color: var(--text-muted);
   text-decoration-color: var(--color-red-pink);
   text-decoration-style: wavy;
   text-decoration-thickness: 1px;
 }
+/* Preview — Text — Blockquotes */
 blockquote,
 .markdown-preview-view blockquote {
   border: 0;
   border-radius: 0.5rem;
   border-left: 5px solid var(--color-purple-3);
   border-right: 1px solid var(--color-purple-3);
-  box-shadow: 0 0 1px var(--color-magic-gold),
-              0 0 2px var(--color-magic-gold);
-  transition: box-shadow 0.5s ease-in-out;
+  box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-magic-gold) inset;
+  transition: 0.05s box-shadow ease-in-out;
 }
 blockquote:hover,
 .markdown-preview-view blockquote:hover {
-  box-shadow: 0 0 1px var(--color-magic-gold),
-              0 0 2px var(--color-magic-gold),
-              0 0 4px var(--color-magic-gold),
-              0 0 8px var(--color-magic-gold),
-              0 0 2px var(--color-deep-indigo),
-              0 0 4px var(--color-deep-indigo),
-              0 0 8px var(--color-deep-indigo),
-              0 0 16px var(--color-deep-indigo);
+  box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-magic-gold) inset,
+              0 -1px 4px var(--color-magic-gold) inset,
+              0 -1px 8px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-grey-00),
+              0 -1px 4px var(--color-grey-00),
+              0 -1px 8px var(--color-grey-00),
+              0 -1px 16px var(--color-grey-00),
+              0 -1px 1px var(--color-shadowy-gold),
+              0 -1px 2px var(--color-shadowy-gold),
+              0 -1px 4px var(--color-shadowy-gold),
+              0 -1px 8px var(--color-shadowy-gold);
 }
 blockquote blockquote,
 .markdown-preview-view blockquote blockquote {
@@ -358,7 +372,7 @@ ol li p {
   position: relative;
   text-align: right;
 }
-/* Preview — Lists, Unordered */
+/* Preview — Lists — Unordered */
 ul,
 ul ul,
 ul ul ul,
@@ -368,18 +382,15 @@ ul ul ul ul ul ul {
   list-style-type: '\2192';
 }
 li {
-  /* padding: 0.5rem; */
   border-radius: 0.25rem;
   padding-left: 0.6rem;
   transition: box-shadow 0.5s ease-in-out;
 }
 li:hover {
-  box-shadow: 0 0 1px var(--color-magic-gold),
-              0 0 2px var(--color-magic-gold),
-              0 0 4px var(--color-magic-gold),
-              0 0 2px var(--color-deep-indigo),
-              0 0 4px var(--color-deep-indigo),
-              0 0 8px var(--color-deep-indigo)
+  box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-grey-00),
+              0 -1px 4px var(--color-grey-00);
 }
 ul li::marker {
   color: var(--color-purple-3);
@@ -399,7 +410,7 @@ ul ul ul ul ul li::marker {
 ul ul ul ul ul ul li::marker {
   color: var(--color-cyan-desat);
 }
-/* Preview — Lists, Ordered */
+/* Preview — Lists — Ordered */
 ol li::marker {
   color: var(--color-purple-3);
 }
@@ -418,6 +429,54 @@ ol ol ol ol ol li::marker {
 ol ol ol ol ol ol li::marker {
   color: var(--color-cyan-desat);
 }
+/* Preview — Links */
+.markdown-preview-view .internal-link {
+  color: var(--color-normal);
+  border-bottom: 1px solid var(--color-magic-gold);
+  border-radius: 0.25rem;
+  text-decoration-line: none;
+  /* text-decoration-color: var(--color-magic-gold); */
+  transition: 0.25s color ease-in-out;
+  -webkit-text-stroke: 0.1px var(--color-magic-gold);
+}
+.markdown-preview-view .internal-link:hover {
+  color: var(--color-magic-gold);
+}
+.markdown-preview-view .internal-link.is-unresolved {
+  color: var(--text-faint);
+  opacity: 1;
+  -webkit-text-stroke: 0.1px var(--color-shadowy-gold);
+}
+.markdown-preview-view .internal-link.is-unresolved:hover {
+  color: var(--color-shadowy-gold);
+}
+.external-link {
+  border-top: 1px solid var(--color-shadowy-gold);
+  border-radius: 0.25rem;
+  color: var(--color-normal);
+  -webkit-text-stroke: 0.1px var(--color-cyan-desat);
+  text-decoration-line: none;
+  transition: 0.25s color ease-in-out;
+}
+.external-link:hover {
+  color: var(--color-cyan-desat);
+}
+.markdown-preview-view h3 .external-link {
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-color: transparent;
+  transition: 0.5s background ease-in-out;
+}
+.markdown-preview-view h3 .external-link:hover {
+  background: linear-gradient(180deg, var(--text-normal), var(--color-cyan-desat) 0, var(--color-cyan-desat) 55%, var(--color-shadowy-gold) 70%, var(--color-shadowy-gold));
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+
+/* Edit */
 
 /* Edit — Headings */
 .cm-s-obsidian .cm-header {
@@ -441,10 +500,10 @@ ol ol ol ol ol ol li::marker {
   background: linear-gradient(90deg, var(--color-purple-3), var(--color-purple-3) 25%, #00000000 50%);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 2px;
-  bottom: 1.72rem;
+  bottom: calc(var(--editor-font-size) + calc(calc(2.5 * var(--editor-font-size)) / 5));
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.25rem;
+  height: calc(var(--editor-font-size) / 4);
   z-index: -1;
 }
 .cm-s-obsidian .HyperMD-header-2 {
@@ -459,10 +518,10 @@ ol ol ol ol ol ol li::marker {
   background: linear-gradient(90deg, var(--color-hot-pink), var(--color-hot-pink) 25%, #00000000 50%);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 1px;
-  bottom: 1.34rem;
+  bottom: calc(var(--editor-font-size) + calc(var(--editor-font-size) / 5));
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.22rem;
+  height: calc(var(--editor-font-size) / 5.25);
   z-index: -1;
 }
 .cm-s-obsidian .HyperMD-header-3 {
@@ -477,10 +536,10 @@ ol ol ol ol ol ol li::marker {
   background: linear-gradient(90deg, var(--color-shadowy-gold), var(--color-shadowy-gold) 25%, #00000000 50%);
   border-top-left-radius: 5px;
   border-bottom-left-radius: 1px;
-  bottom: 1.12rem;
+  bottom: calc(var(--editor-font-size) + calc(calc(var(--editor-font-size) / 6)) - 5%);
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.19rem;
+  height: calc(var(--editor-font-size) / 6);
   z-index: -1;
 }
 .cm-s-obsidian .HyperMD-header-4 {
@@ -495,10 +554,10 @@ ol ol ol ol ol ol li::marker {
   background: linear-gradient(90deg, var(--color-green), var(--color-green) 25%, #00000000 50%);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 0;
-  bottom: .94rem;
+  bottom: calc(var(--editor-font-size) + calc(calc(var(--editor-font-size) / 5) - 14%));
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.16rem;
+  height: calc(var(--editor-font-size) / 6.75);
   z-index: -1;
 }
 .cm-s-obsidian .HyperMD-header-5 {
@@ -513,10 +572,10 @@ ol ol ol ol ol ol li::marker {
   background: linear-gradient(90deg, var(--color-teal), var(--color-teal) 25%, #00000000 50%);
   border-top-left-radius: 3px;
   border-bottom-left-radius: 0;
-  bottom: .84rem;
+  bottom: calc(var(--editor-font-size) + calc(calc(var(--editor-font-size) / 5) - 21%));
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.145rem;
+  height: calc(var(--editor-font-size) / 7);
   z-index: -1;
 }
 .cm-s-obsidian .HyperMD-header-6 {
@@ -531,17 +590,17 @@ ol ol ol ol ol ol li::marker {
   background: linear-gradient(90deg, var(--color-cyan-desat), var(--color-cyan-desat) 25%, #00000000 50%);
   border-top-left-radius: 3px;
   border-bottom-left-radius: 0;
-  bottom: .8rem;
+  bottom: calc(var(--editor-font-size) + calc(calc(var(--editor-font-size) / 5) - 25%));
   position: absolute;
   width: calc(100% + .25rem);
-  height: 0.12rem;
+  height: calc(var(--editor-font-size) / 9);
   z-index: -1;
 }
-/* Edit — Formatting marks */
 .cm-s-obsidian .cm-formatting-header {
   font-size: 1rem;
 }
 /* Edit — Text */
+/* Edit — Text — Bold, Italic */
 .cm-em,
 .cm-s-obsidian .cm-em {
   -webkit-text-stroke-color: var(--color-italic);
@@ -558,11 +617,130 @@ ol ol ol ol ol ol li::marker {
 .cm-s-obsidian .cm-strong .cm-em {
   -webkit-text-stroke-width: 0.05px;
 }
-
+/* Edit — Text — Strikethrough */
 .cm-strikethrough,
 .cm-s-obsidian .cm-strikethrough {
   color: var(--text-muted);
   text-decoration-color: var(--color-red-pink);
   text-decoration-style: wavy;
   text-decoration-thickness: 1px;
+}
+/* Preview — Text — Blockquotes */
+/* .HyperMD-quote,
+.cm-s-obsidian .HyperMD-quote {
+  margin-bottom: 0.5rem;
+} */
+.HyperMD-quote,
+.cm-s-obsidian .HyperMD-quote {
+  border: 0;
+  border-radius: 0.5rem;
+  /* box-shadow: 0 0 1px var(--color-magic-gold),
+              0 0 2px var(--color-magic-gold); */
+  transition: box-shadow 0.5s ease-in-out;
+}
+.HyperMD-quote:hover,
+.cm-s-obsidian .HyperMD-quote:hover {
+  box-shadow: 0 0 1px var(--color-magic-gold) inset,
+              0 0 2px var(--color-magic-gold) inset,
+              0 0 4px var(--color-magic-gold) inset,
+              0 0 2px var(--color-grey-00),
+              0 0 4px var(--color-grey-00),
+              0 0 8px var(--color-grey-00);
+}
+span.cm-formatting-quote-1,
+.cm-s-obsidian span.cm-formatting-quote-1 {
+  color: var(--color-purple-3);
+}
+.HyperMD-quote-1,
+.cm-s-obsidian .HyperMD-quote-1 {
+  border-left: 5px solid var(--color-purple-3);
+  border-right: 1px solid var(--color-purple-3);
+}
+span.cm-formatting-quote-2,
+.cm-s-obsidian span.cm-formatting-quote-2 {
+  color: var(--color-red-pink);
+}
+.HyperMD-quote-2,
+.cm-s-obsidian .HyperMD-quote-2 {
+  border-left: 5px solid var(--color-hot-pink);
+  border-right: 1px solid var(--color-hot-pink);
+}
+span.cm-formatting-quote-3,
+.cm-s-obsidian span.cm-formatting-quote-3 {
+  color: var(--color-shadowy-gold);
+}
+.HyperMD-quote-3,
+.cm-s-obsidian .HyperMD-quote-3 {
+  border-left: 5px solid var(--color-shadowy-gold);
+  border-right: 1px solid var(--color-shadowy-gold);
+}
+span.cm-formatting-quote-4,
+.cm-s-obsidian span.cm-formatting-quote-4 {
+  color: var(--color-green);
+}
+.HyperMD-quote-4,
+.cm-s-obsidian .HyperMD-quote-4 {
+  border-left: 5px solid var(--color-green);
+  border-right: 1px solid var(--color-green);
+}
+span.cm-formatting-quote-5,
+.cm-s-obsidian span.cm-formatting-quote-5 {
+  color: var(--color-teal);
+}
+.HyperMD-quote-5,
+.cm-s-obsidian .HyperMD-quote-5 {
+  border-left: 5px solid var(--color-teal);
+  border-right: 1px solid var(--color-teal);
+}
+span.cm-formatting-quote-6,
+.cm-s-obsidian span.cm-formatting-quote-6 {
+  color: var(--color-cyan-desat);
+}
+.HyperMD-quote-6,
+.cm-s-obsidian .HyperMD-quote-6 {
+  border-left: 5px solid var(--color-cyan-desat);
+  border-right: 1px solid var(--color-cyan-desat);
+}
+/* Edit — Lists */
+.CodeMirror .HyperMD-list-line {
+  left: 0.3rem;
+  border-radius: 0.25rem;
+  box-shadow: 1px solid var(--color-shadowy-gold);
+  transition: box-shadow 0.5s ease-in-out;
+}
+.HyperMD-list-line:hover {
+  box-shadow: 0 0 1px var(--color-magic-gold) inset,
+              0 0 2px var(--color-magic-gold) inset,
+              0 0 4px var(--color-magic-gold) inset,
+              0 0 2px var(--color-grey-00),
+              0 0 4px var(--color-grey-00),
+              0 0 8px var(--color-grey-00)
+}
+.HyperMD-list-line.HyperMD-list-line-1 .cm-formatting-list {
+  color: var(--color-purple-3);
+}
+.HyperMD-list-line.HyperMD-list-line-2 .cm-formatting-list {
+  color: var(--color-hot-pink);
+}
+.HyperMD-list-line.HyperMD-list-line-3 .cm-formatting-list {
+  color: var(--color-shadowy-gold);
+}
+.HyperMD-list-line.HyperMD-list-line-4 .cm-formatting-list {
+  color: var(--color-green);
+}
+.HyperMD-list-line.HyperMD-list-line-5 .cm-formatting-list {
+  color: var(--color-teal);
+}
+.HyperMD-list-line.HyperMD-list-line-6 .cm-formatting-list {
+  color: var(--color-cyan-desat);
+}
+/* Edit — Links */
+.cm-s-obsidian span.cm-hmd-internal-link {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-magic-gold);
+}
+.cm-s-obsidian span.cm-link,
+.cm-s-obsidian span.cm-url {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-shadowy-gold);
 }
