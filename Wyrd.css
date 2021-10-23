@@ -342,25 +342,26 @@ del,
 .markdown-preview-view del {
   color: var(--color-grey-02);
   text-decoration-line: none;
-  /* text-decoration-color: var(--color-red-pink);
-  text-decoration-style: wavy;
-  text-decoration-thickness: 1px; */
+  transition: 0.3s color ease-in-out;
+}
+del:hover,
+.markdown-preview-view del:hover {
+  color: var(--text-faint);
 }
 /* Preview — Text — Blur */
 del mark,
 .markdown-preview-view del mark {
-  color: var(--text-normal);
+  color: var(--text-faint);
   filter: blur(0.25rem) drop-shadow(0 0 0);
   background-color: transparent;
   transition-timing-function: ease-in-out;
   transition-duration: 0.3s;
-  transition-property: filter;
-  /* text-shadow: none; */
+  transition-property: color, filter;
 }
 del mark:hover,
 .markdown-preview-view del mark:hover {
+  color: var(--text-muted);
   filter: blur(0) drop-shadow(0 0 0.25rem);
-  /* text-shadow: 0 0 0.15rem var(--text-normal); */
 }
 /* Preview — Text — Blockquotes */
 blockquote,
