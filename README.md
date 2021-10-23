@@ -15,6 +15,7 @@ Wyrd is a purple-hued, low-contrast theme for [Obsidian.md](https://obsidian.md)
 
 - [ ] Snippet to make font selection locally available for offline use
   - Necessary, as some fonts from google contain 50+ variations, and would make the CSS file absurdly large
+  - This would also save the performance hit of `@import`ing the fonts
 - [ ] Style Settings compatability
 - [ ] 
 
@@ -34,8 +35,8 @@ Wyrd is a purple-hued, low-contrast theme for [Obsidian.md](https://obsidian.md)
     - [x] `~~Strikethrough~~` (ST) styling
     - [ ] `==Highlight==` (HL) styling
   - Repeating
-    - [ ] `_*Italic + Italic*_` == ?
-    - [ ] `*_Bold + Bold_*` == ?
+    - [ ] `_*Italic + Italic*_` == underline
+    - [ ] `*_Bold + Bold_*` == underline
     - [-] ~~`====HL + HL====` == ?~~ Does not render as dual highlights due to parsing
     - [-] ~~`~~~~ST + ST====` == ?~~ Renders as code block until second line of `~~~~` is reached by parser
   - Expressive
@@ -54,11 +55,12 @@ Wyrd is a purple-hued, low-contrast theme for [Obsidian.md](https://obsidian.md)
     - Strikethrough + ...
       - [ ] `~~==ST + Italic==~~` == ?
       - [ ] `~~==ST + Bold==~~` == ?
-      - [ ] `~~==ST + HL==~~` == ?
+      - [ ] `~~==ST + HL==~~` == blur text
 - Lists
   - [x] Unordered
   - [x] Ordered
   - [ ] Task lists
+    - [ ] Alternate styles for markers
 - Link styling
   - [x] Internal link
   - [x] Unresolved internal link
@@ -66,7 +68,7 @@ Wyrd is a purple-hued, low-contrast theme for [Obsidian.md](https://obsidian.md)
   - [ ] Footnotes
 - Tables
   - [ ] Alternating rows
-  - [ ] Row/cell highlighting
+  - [ ] Row/cell highlighting on hover
 - Code
   - [ ] Code blocks
   - [ ] Inline code
@@ -88,6 +90,7 @@ Wyrd is a purple-hued, low-contrast theme for [Obsidian.md](https://obsidian.md)
 - Status bar
 - Graph view
 - Settings window
+- `@media screen` queries
 
 ### Plugin Support
 
