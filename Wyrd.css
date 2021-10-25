@@ -99,6 +99,8 @@
   --text-faint: var(--color-grey-04);
   --text-on-accent: var(--text-normal);
   --scrollbar-hsl: var(--color-deep-purple-hsl);
+  --text-strike: var(--color-grey-02);
+  --shadow-primary: var(--color-grey-00);
 }
 
 /**
@@ -115,6 +117,8 @@ Light Mode defaults
   --text-faint: var(--color-grey-06);
   --text-on-accent: var(--text-faint);
   --scrollbar-hsl: var(--color-pale-purle-hsl);
+  --text-strike: var(--color-grey-08);
+  --shadow-primary: var(--color-grey-06);
 }
 
 /**
@@ -337,16 +341,33 @@ strong em em,
   -webkit-text-stroke-color: var(--text-normal);
   -webkit-text-stroke-width: 0.05px;
 }
+/* Preview — Text — Highlight */
+mark,
+.markdown-preview-view mark {
+  color: var(--text-normal);
+  border-radius: 0.8rem 0.4rem;
+  filter: drop-shadow(0 0 0 transparent);
+  text-shadow: 0 0 0 var(--shadow-primary);
+  transition-duration: 0.15s;
+  transition-property: color, filter, text-shadow;
+  transition-timing-function: ease-in-out;
+}
+mark:hover,
+.markdown-preview-view mark:hover {
+  color: var(--color-grey-07);
+  filter: drop-shadow(0 -1px 0.15rem var(--color-cyan-desat));
+  text-shadow: 0 -1px 1.5px var(--shadow-primary);
+}
 /* Preview — Text — Strikethrough */
 del,
 .markdown-preview-view del {
-  color: var(--color-grey-02);
+  color: var(--text-strike);
   text-decoration-line: none;
   transition: 0.3s color ease-in-out;
 }
 del:hover,
 .markdown-preview-view del:hover {
-  color: var(--text-faint);
+  color: var(--text-muted);
 }
 /* Preview — Text — Blur */
 del mark,
@@ -372,6 +393,8 @@ blockquote,
   border-right: 1px solid var(--color-purple-3);
   box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
               0 -1px 2px var(--color-magic-gold) inset;
+  margin-inline-start: 5px;
+  margin-inline-end: 5px;
   transition: 0.05s box-shadow ease-in-out;
 }
 blockquote:hover,
@@ -380,10 +403,10 @@ blockquote:hover,
               0 -1px 2px var(--color-magic-gold) inset,
               0 -1px 4px var(--color-magic-gold) inset,
               0 -1px 8px var(--color-magic-gold) inset,
-              0 -1px 2px var(--color-grey-00),
-              0 -1px 4px var(--color-grey-00),
-              0 -1px 8px var(--color-grey-00),
-              0 -1px 16px var(--color-grey-00),
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary),
+              0 -1px 8px var(--shadow-primary),
+              0 -1px 16px var(--shadow-primary),
               0 -1px 1px var(--color-shadowy-gold),
               0 -1px 2px var(--color-shadowy-gold),
               0 -1px 4px var(--color-shadowy-gold),
@@ -433,14 +456,16 @@ ul ul ul ul ul ul {
 }
 li {
   border-radius: 0.25rem;
+  padding-bottom: 0.2rem;
   padding-left: 0.6rem;
+  padding-right: 0.2rem;
   transition: box-shadow 0.5s ease-in-out;
 }
 li:hover {
   box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
               0 -1px 2px var(--color-magic-gold) inset,
-              0 -1px 2px var(--color-grey-00),
-              0 -1px 4px var(--color-grey-00);
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
 }
 ul li::marker {
   color: var(--color-purple-3);
@@ -485,7 +510,6 @@ ol ol ol ol ol ol li::marker {
   border-bottom: 1px solid var(--color-magic-gold);
   border-radius: 0.25rem;
   text-decoration-line: none;
-  /* text-decoration-color: var(--color-magic-gold); */
   transition: 0.25s color ease-in-out;
   -webkit-text-stroke: 0.1px var(--color-magic-gold);
 }
@@ -493,7 +517,7 @@ ol ol ol ol ol ol li::marker {
   color: var(--color-magic-gold);
 }
 .markdown-preview-view .internal-link.is-unresolved {
-  color: var(--text-faint);
+  color: var(--text-muted);
   opacity: 1;
   -webkit-text-stroke: 0.1px var(--color-shadowy-gold);
 }
@@ -511,8 +535,20 @@ ol ol ol ol ol ol li::marker {
 .external-link:hover {
   color: var(--color-cyan-desat);
 }
+.footnote-link {
+  border-radius: 0.25rem;
+  border-bottom: 1px solid var(--color-pale-purle);
+  color: var(--text-normal);
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: 0.25s color ease-in-out;
+  -webkit-text-stroke: 0.25px var(--color-purple-3);
+}
+.footnote-link:hover {
+  color: var(--color-purple-3);
+}
 .markdown-preview-view h3 .external-link {
-  background: inherit;
+  background: linear-gradient(180deg, var(--color-cyan-desat), var(--color-cyan-desat) 55%, var(--color-shadowy-gold) 70%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -520,22 +556,23 @@ ol ol ol ol ol ol li::marker {
   transition: 0.5s background ease-in-out;
 }
 .markdown-preview-view h3 .external-link:hover {
-  background: linear-gradient(180deg, var(--text-normal), var(--color-cyan-desat) 0, var(--color-cyan-desat) 55%, var(--color-shadowy-gold) 70%, var(--color-shadowy-gold));
+  background: linear-gradient(180deg, var(--color-cyan), var(--color-cyan) 0, var(--color-cyan) 55%, var(--color-magic-gold) 70%, var(--color-magic-gold));
   background-clip: text;
   -webkit-background-clip: text;
 }
-
+/* Preview — Horizontal Rules */
+.markdown-preview-view hr {
+  border: none;
+  background: linear-gradient(90deg, transparent, var(--color-shadowy-gold) 20%, var(--color-magic-gold), var(--color-shadowy-gold) 80%, transparent 100%);
+  height: 2px;
+}
 
 /* Edit */
-/* .cm-s-obsidian {
-  overflow-x: visible;
-} */
 /* Edit — Headings */
 .cm-s-obsidian .cm-header {
   font-family: var(--font-heading);
   font-style: normal;
 }
-/* - [ ] #TODO Fix heading widths to keep text from being cut off for long lines */
 .cm-s-obsidian .cm-header {
   padding-left: 0.5rem;
   padding-right: 0.6rem;
@@ -655,7 +692,6 @@ ol ol ol ol ol ol li::marker {
 /* Edit — Text — Active Line */
 .CodeMirror-activeline .CodeMirror-activeline-background::before {
   content: ' ';
-  /* border: 1px solid var(--color-grey-05); */
   background: transparent;
   height: calc(var(--editor-font-size) * 1.1);
   left: calc(var(--editor-font-size) * 0.5);
@@ -674,7 +710,6 @@ ol ol ol ol ol ol li::marker {
 }
 .CodeMirror-activeline .CodeMirror-activeline-background::after {
   content: ' ';
-  /* border: 1px solid var(--color-grey-05); */
   background: transparent;
   height: calc(var(--editor-font-size) * 1.1);
   left: calc(var(--editor-font-size) * 0.5);
@@ -693,57 +728,92 @@ ol ol ol ol ol ol li::marker {
   animation: activeline-r2 60s linear 0s infinite;
 }
 /** 
-  Edit — Text — Bold, Italic
-  
   Need:
-  - Underline
+  - ~~Underline~~
   - Mixed effects
  */
-.cm-em,
-.cm-s-obsidian .cm-em {
-  -webkit-text-stroke-color: var(--color-italic);
-  -webkit-text-stroke-width: 0.5px;
-}
+ /* Edit — Text — Italic */
+ .cm-em,
+ .cm-s-obsidian .cm-em {
+   -webkit-text-stroke-color: var(--color-italic);
+   -webkit-text-stroke-width: 0.5px;
+  }
+/* Edit — Text — Bold */
 .cm-strong,
 .cm-s-obsidian .cm-strong {
   -webkit-text-fill-color: var(--color-bold);
   -webkit-text-stroke-width: 0.05px;
 }
+/* Edit — Text — Bold + Italic */
 .cm-em .cm-strong,
 .cm-strong .cm-em,
 .cm-s-obsidian .cm-em .cm-strong,
 .cm-s-obsidian .cm-strong .cm-em {
   -webkit-text-stroke-width: 0.05px;
 }
+/** CodeMirror doesn't apply layers of repeated style to edit-mode text.
+  While this doesn't prevent the styles from being used for previews,
+  it _does_ mean that I likely won't be able to style any underlines at
+  the moment with core Obsidian.
+ */
+/* Edit — Text — Highlight */
+.cm-highlight,
+.cm-s-obsidian .cm-highlight {
+  border-radius: 0.8rem 0.4rem;
+  filter: drop-shadow(0 0 0 transparent);
+  text-shadow: 0 0 0 var(--shadow-primary);
+  transition-duration: 0.15s;
+  transition-property: color, filter, text-shadow;
+  transition-timing-function: ease-in-out;
+}
+.CodeMirror-activeline .cm-highlight {
+  --text-highlight-bg: var(--text-highlight-bg-active);
+}
+.cm-highlight:hover,
+.cm-s-obsidian .cm-highlight:hover {
+  color: var(--color-grey-07);
+  filter: drop-shadow(0 -1px 0.15rem var(--color-cyan-desat));
+  text-shadow: 0 -1px 1.5px var(--shadow-primary);
+}
 /* Edit — Text — Strikethrough */
 .cm-strikethrough,
 .cm-s-obsidian .cm-strikethrough {
+  color: var(--text-strike);
+  text-decoration: none;
+  text-shadow: 0 -1px 1px var(--text-faint);
+  transition: 0.3s color ease-in-out;
+}
+.cm-strikethrough:hover,
+.cm-s-obsidian .cm-strikethrough:hover {
   color: var(--text-muted);
-  text-decoration-color: var(--color-red-pink);
-  text-decoration-style: wavy;
-  text-decoration-thickness: 1px;
+}
+/* Edit — Text — Blur */
+.cm-strikethrough.cm-highlight,
+.cm-s-obsidian .cm-strikethrough.cm-highlight {
+  background: transparent;
+  color: var(--text-faint);
+  filter: blur(0.05rem) drop-shadow(0 0 0);
+  text-shadow: none;
+  transition: 0.3s color, filter ease-in-out;
+}
+.cm-strikethrough.cm-highlight:hover,
+.cm-s-obsidian .cm-strikethrough.cm-highlight:hover {
+  color: var(--text-muted);
+  filter: blur(0) drop-shadow(0 0 0.05rem)
 }
 /* Edit — Text — Blockquotes */
-/* .HyperMD-quote,
-.cm-s-obsidian .HyperMD-quote {
-  margin-bottom: 0.5rem;
-} */
 .HyperMD-quote,
 .cm-s-obsidian .HyperMD-quote {
   border: 0;
   border-radius: 0.5rem;
-  /* box-shadow: 0 0 1px var(--color-magic-gold),
-              0 0 2px var(--color-magic-gold); */
-  transition: box-shadow 0.5s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out;
 }
 .HyperMD-quote:hover,
 .cm-s-obsidian .HyperMD-quote:hover {
-  box-shadow: 0 0 1px var(--color-magic-gold) inset,
-              0 0 2px var(--color-magic-gold) inset,
-              0 0 4px var(--color-magic-gold) inset,
-              0 0 2px var(--color-grey-00),
-              0 0 4px var(--color-grey-00),
-              0 0 8px var(--color-grey-00);
+  box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-magic-gold) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
 }
 span.cm-formatting-quote-1,
 .cm-s-obsidian span.cm-formatting-quote-1 {
@@ -804,15 +874,13 @@ span.cm-formatting-quote-6,
   left: 0.3rem;
   border-radius: 0.25rem;
   box-shadow: 1px solid var(--color-shadowy-gold);
-  transition: box-shadow 0.5s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out;
 }
 .HyperMD-list-line:hover {
-  box-shadow: 0 0 1px var(--color-magic-gold) inset,
-              0 0 2px var(--color-magic-gold) inset,
-              0 0 4px var(--color-magic-gold) inset,
-              0 0 2px var(--color-grey-00),
-              0 0 4px var(--color-grey-00),
-              0 0 8px var(--color-grey-00)
+  box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-magic-gold) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
 }
 .HyperMD-list-line.HyperMD-list-line-1 .cm-formatting-list {
   color: var(--color-purple-3);
@@ -833,14 +901,53 @@ span.cm-formatting-quote-6,
   color: var(--color-cyan-desat);
 }
 /* Edit — Links */
-.cm-s-obsidian span.cm-hmd-internal-link {
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-magic-gold);
+.cm-s-obsidian span.cm-url,
+.cm-s-obsidian span.cm-link,
+.cm-s-obsidian span.cm-footref,
+.cm-s-obsidian span.cm-hmd-barelink,
+.cm-s-obsidian span.cm-hmd-internal-link,
+.cm-s-obsidian span.cm-formatting-link {
+  color: var(--text-normal);
+  text-decoration: none;
+  transition: 0.25s color ease-in-out;
+}
+.cm-s-obsidian span.cm-url:hover,
+.cm-s-obsidian span.cm-link:hover,
+.cm-s-obsidian span.cm-footref:hover,
+.cm-s-obsidian span.cm-hmd-barelink:hover,
+.cm-s-obsidian span.cm-hmd-internal-link:hover,
+.cm-s-obsidian span.cm-formatting-link:hover {
+  text-decoration: none;
+}
+.cm-s-obsidian span.cm-footref {
+  font-size: 0.8rem;
+}
+.cm-s-obsidian span.cm-url {
+  -webkit-text-stroke: 0.25px var(--color-cyan-desat);
+}
+.cm-s-obsidian span.cm-url:hover {
+  color: var(--color-cyan-desat);
 }
 .cm-s-obsidian span.cm-link,
-.cm-s-obsidian span.cm-url {
-  text-decoration-line: underline;
-  text-decoration-color: var(--color-shadowy-gold);
+.cm-s-obsidian span.cm-hmd-barelink {
+  -webkit-text-stroke: 0.25px var(--color-shadowy-gold);
+}
+.cm-s-obsidian span.cm-link:hover,
+.cm-s-obsidian span.cm-hmd-barelink:hover {
+  color: var(--color-shadowy-gold);
+}
+.cm-s-obsidian span.cm-footref,
+.cm-s-obsidian span.cm-hmd-internal-link,
+.cm-s-obsidian span.cm-formatting-link {
+  -webkit-text-stroke: 0.25px var(--color-purple-3);
+}
+.cm-s-obsidian span.cm-footref:hover,
+.cm-s-obsidian span.cm-hmd-internal-link:hover,
+.cm-s-obsidian span.cm-formatting-link:hover {
+  color: var(--color-purple-3);
+}
+.cm-s-obsidian span.cm-link.cm-hmd-footnote {
+  -webkit-text-stroke-width: 0.1px;
 }
 
 @keyframes activeline-r1 {
