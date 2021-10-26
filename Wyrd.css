@@ -83,6 +83,15 @@
   
   --color-bold: hsl(12, 65%, 62%);
   --color-italic: hsl(346, 64%, 57%);
+
+  /* Various Settings */
+  --text-stroke-width: 0.2px;
+  --link-footlink-stroke-width: 0.1px;
+  --link-external-color: var(--color-cyan-desat);
+  --link-internal-color: var(--color-magic-gold);
+  --link-internal-unresolved-color: var(--color-shadowy-gold);
+  --link-footlink-color: var(--color-purple-3);
+  --link-url-string-color: var(--color-teal);
 }
 
 /**
@@ -511,29 +520,29 @@ ol ol ol ol ol ol li::marker {
   border-radius: 0.25rem;
   text-decoration-line: none;
   transition: 0.25s color ease-in-out;
-  -webkit-text-stroke: 0.1px var(--color-magic-gold);
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-internal-color);
 }
 .markdown-preview-view .internal-link:hover {
-  color: var(--color-magic-gold);
+  color: var(--link-internal-color);
 }
 .markdown-preview-view .internal-link.is-unresolved {
   color: var(--text-muted);
   opacity: 1;
-  -webkit-text-stroke: 0.1px var(--color-shadowy-gold);
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-internal-unresolved-color);
 }
 .markdown-preview-view .internal-link.is-unresolved:hover {
-  color: var(--color-shadowy-gold);
+  color: var(--link-internal-unresolved-color);
 }
 .external-link {
   border-top: 1px solid var(--color-shadowy-gold);
   border-radius: 0.25rem;
-  color: var(--color-normal);
-  -webkit-text-stroke: 0.1px var(--color-cyan-desat);
+  color: var(--text-normal);
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-external-color);
   text-decoration-line: none;
   transition: 0.25s color ease-in-out;
 }
 .external-link:hover {
-  color: var(--color-cyan-desat);
+  color: var(--link-external-color);
 }
 .footnote-link {
   border-radius: 0.25rem;
@@ -542,10 +551,10 @@ ol ol ol ol ol ol li::marker {
   font-size: 0.75rem;
   text-decoration: none;
   transition: 0.25s color ease-in-out;
-  -webkit-text-stroke: 0.25px var(--color-purple-3);
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-footlink-color);
 }
 .footnote-link:hover {
-  color: var(--color-purple-3);
+  color: var(--link-footlink-color);
 }
 .markdown-preview-view h3 .external-link {
   background: linear-gradient(180deg, var(--color-cyan-desat), var(--color-cyan-desat) 55%, var(--color-shadowy-gold) 70%);
@@ -923,28 +932,48 @@ span.cm-formatting-quote-6,
   font-size: 0.8rem;
 }
 .cm-s-obsidian span.cm-url {
-  -webkit-text-stroke: 0.25px var(--color-cyan-desat);
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-url-string-color);
 }
 .cm-s-obsidian span.cm-url:hover {
-  color: var(--color-cyan-desat);
+  color: var(--link-url-string-color);
 }
 .cm-s-obsidian span.cm-link,
 .cm-s-obsidian span.cm-hmd-barelink {
-  -webkit-text-stroke: 0.25px var(--color-shadowy-gold);
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-external-color);
 }
 .cm-s-obsidian span.cm-link:hover,
 .cm-s-obsidian span.cm-hmd-barelink:hover {
-  color: var(--color-shadowy-gold);
+  color: var(--link-external-color);
+}
+.cm-s-obsidian span.cm-hmd-internal-link {
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-internal-color);
+}
+.cm-s-obsidian span.cm-hmd-internal-link:hover {
+  color: var(--link-internal-color);
+}
+.cm-s-obsidian span.cm-formatting-link.cm-formatting-link-start,
+.cm-s-obsidian span.cm-formatting-link.cm-formatting-link-end {
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-internal-unresolved-color);
+}
+.cm-s-obsidian span.cm-formatting-link.cm-formatting-link-start:hover,
+.cm-s-obsidian span.cm-formatting-link.cm-formatting-link-end:hover {
+  color: var(--link-internal-unresolved-color);
+}
+.cm-s-obsidian span.cm-formatting-link.cm-link,
+.cm-s-obsidian span.cm-formatting-link.cm-link {
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-external-color);
+}
+.cm-s-obsidian span.cm-formatting-link.cm-link:hover,
+.cm-s-obsidian span.cm-formatting-link.cm-link:hover {
+  color: var(--link-external-color);
 }
 .cm-s-obsidian span.cm-footref,
-.cm-s-obsidian span.cm-hmd-internal-link,
 .cm-s-obsidian span.cm-formatting-link {
-  -webkit-text-stroke: 0.25px var(--color-purple-3);
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-footlink-color);
 }
 .cm-s-obsidian span.cm-footref:hover,
-.cm-s-obsidian span.cm-hmd-internal-link:hover,
 .cm-s-obsidian span.cm-formatting-link:hover {
-  color: var(--color-purple-3);
+  color: var(--link-footlink-color);
 }
 .cm-s-obsidian span.cm-link.cm-hmd-footnote {
   -webkit-text-stroke-width: 0.1px;
