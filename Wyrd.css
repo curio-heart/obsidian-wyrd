@@ -28,6 +28,7 @@
 :root {
   /* Fonts */
   --default-font: Neucha, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+  --font-heading: var(--default-font);
   --mermaid-font: var(--default-font);
   --reveal-font: var(--default-font);
   --font-monospace: 'Space Mono', 'Source Code Pro', monospace;
@@ -36,9 +37,9 @@
   --editor-font-size: 16px;
 
   /* Color Palette */
-  --color-blacker-hsl: hsl(270, 10%, 5%);
+  --color-blacker: hsl(270, 10%, 5%);
   --color-blacker-hsl: 270, 10%, 5%;
-  --color-black-hsl: hsl(270, 10%, 10%);
+  --color-black: hsl(270, 10%, 10%);
   --color-black-hsl: 270, 10%, 10%;
   --color-grey-00: hsl(270, 10%, 12.5%); /* dark mode */
   --color-grey-01: hsl(270, 10%, 15%);
@@ -78,8 +79,8 @@
   --color-purple-2: hsl(270, 60%, 45%);
   --color-purple-3: hsl(270, 65%, 58.8%);
   --color-purple-4: hsl(270, 100%, 61.5%);
-  --color-pale-purle: hsl(270, 100%, 70%);
-  --color-pale-purle-hsl: 270, 100%, 70%;
+  --color-pale-purple: hsl(270, 100%, 70%);
+  --color-pale-purple-hsl: 270, 100%, 70%;
   
   --color-bold: hsl(12, 65%, 62%);
   --color-italic: hsl(346, 64%, 57%);
@@ -87,6 +88,7 @@
   /* Various Settings */
   --text-stroke-width: 0.2px;
   --link-footlink-stroke-width: 0.1px;
+  --heading-stroke-width: 0.01px;
   --link-external-color: var(--color-cyan-desat);
   --link-internal-color: var(--color-magic-gold);
   --link-internal-unresolved-color: var(--color-shadowy-gold);
@@ -125,7 +127,7 @@ Light Mode defaults
   --text-muted-rgb: 77, 70, 83;
   --text-faint: var(--color-grey-06);
   --text-on-accent: var(--text-faint);
-  --scrollbar-hsl: var(--color-pale-purle-hsl);
+  --scrollbar-hsl: var(--color-pale-purple-hsl);
   --text-strike: var(--color-grey-08);
   --shadow-primary: var(--color-grey-06);
 }
@@ -162,11 +164,12 @@ Light Mode defaults
   --scrollbar-thumb-bg: hsla(var(--scrollbar-hsl), 0.1);
   --highlight-mix-blend-mode: lighten;
 }
-/* Preview */
-.markdown-preview-view * {
+/* Publish */
+.published-container {
   font-size: var(--editor-font-size);
   position: relative;
 }
+/* Preview */
 /* Preview — Headings */
 .markdown-preview-view h1,
 .markdown-preview-view h2,
@@ -438,13 +441,30 @@ del mark,
   filter: blur(0.25rem) drop-shadow(0 0 0);
   background-color: transparent;
   transition-timing-function: ease-in-out;
-  transition-duration: 0.3s;
+  /* transition-delay: 0.25s; */
+  transition-duration: 0.25s;
   transition-property: color, filter;
 }
 del mark:hover,
 .markdown-preview-view del mark:hover {
   color: var(--text-muted);
   filter: blur(0) drop-shadow(0 0 0.25rem);
+}
+h1 del mark, .markdown-preview-view h1 del mark,
+h2 del mark, .markdown-preview-view h2 del mark,
+h3 del mark, .markdown-preview-view h3 del mark,
+h4 del mark, .markdown-preview-view h4 del mark,
+h5 del mark, .markdown-preview-view h5 del mark,
+h6 del mark, .markdown-preview-view h6 del mark {
+  filter: blur(0.5rem) drop-shadow(0 0 0);
+}
+h1 del mark:hover, .markdown-preview-view h1 del mark:hover,
+h2 del mark:hover, .markdown-preview-view h2 del mark:hover,
+h3 del mark:hover, .markdown-preview-view h3 del mark:hover,
+h4 del mark:hover, .markdown-preview-view h4 del mark:hover,
+h5 del mark:hover, .markdown-preview-view h5 del mark:hover,
+h6 del mark:hover, .markdown-preview-view h6 del mark:hover {
+  filter: blur(0) drop-shadow(0 0 0.5rem);
 }
 /* Preview — Text — Blockquotes */
 blockquote,
@@ -609,24 +629,42 @@ ol ol ol ol ol ol li::marker {
 .footnote-link:hover {
   color: var(--link-footlink-color);
 }
-.markdown-preview-view h3 .external-link {
-  background: linear-gradient(180deg, var(--color-cyan-desat), var(--color-cyan-desat) 55%, var(--color-shadowy-gold) 70%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-color: transparent;
-  transition: 0.5s background ease-in-out;
+.markdown-preview-view h1 > .external-link,
+.markdown-preview-view h2 > .external-link,
+.markdown-preview-view h3 > .external-link,
+.markdown-preview-view h4 > .external-link,
+.markdown-preview-view h5 > .external-link,
+.markdown-preview-view h6 > .external-link {
+  border-top: 2px solid var(--color-shadowy-gold);
+  border-radius: 0.25rem;
+  color: var(--text-normal);
+  padding-top: 0.25rem;
+  text-decoration-line: none;
+  transition: 0.25s color ease-in-out;
+  -webkit-text-stroke-width: var(--heading-stroke-width);
+  -webkit-text-stroke-color: var(--link-external-color);
 }
-.markdown-preview-view h3 .external-link:hover {
-  background: linear-gradient(180deg, var(--color-cyan), var(--color-cyan) 0, var(--color-cyan) 55%, var(--color-magic-gold) 70%, var(--color-magic-gold));
-  background-clip: text;
-  -webkit-background-clip: text;
+.markdown-preview-view h1 > .external-link:hover,
+.markdown-preview-view h2 > .external-link:hover,
+.markdown-preview-view h3 > .external-link:hover,
+.markdown-preview-view h4 > .external-link:hover,
+.markdown-preview-view h5 > .external-link:hover,
+.markdown-preview-view h6 > .external-link:hover {
+  color: var(--link-external-color);
 }
 /* Preview — Horizontal Rules */
 .markdown-preview-view hr {
   border: none;
   background: linear-gradient(90deg, transparent, var(--color-shadowy-gold) 20%, var(--color-magic-gold), var(--color-shadowy-gold) 80%, transparent 100%);
   height: 2px;
+}
+/* Preview — Tables */
+.markdown-preview-view table thead tr th {
+  /* border-bottom: 2px solid var(--color-shadowy-gold);
+  border-left: 5px solid var(--color-shadowy-gold);
+  border-right: 5px solid var(--color-shadowy-gold);
+  border-top: 2px solid var(--color-shadowy-gold); */
+  border-radius: 0.25rem;
 }
 
 /* Settings */
