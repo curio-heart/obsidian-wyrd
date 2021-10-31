@@ -14,7 +14,7 @@ I like to experiment with CSS to create something visually unique, so familiar s
 
 ... and unusual combinations of markdown can be used to create unique styles not otherwise available through markdown.
 
-![Wyrd theme unusual styles](./img/Wyrd-theme-unusual-styles.gif "Wyrd theme unusual styles")
+![Wyrd theme unusual styles](./img/Wyrd-theme-preview-unusual-styles.gif "Wyrd theme unusual styles")
 
 (What, you thought there was a _reason_ that was censored? **Hah!**)
 
