@@ -9,7 +9,7 @@
  */
 
 /**
-  1 Font imports
+  1 Fonts
  */
 /* Preview: Neucha */
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
@@ -1183,6 +1183,52 @@ span.cm-formatting-quote-6,
 }
 .cm-s-obsidian span.cm-link.cm-hmd-footnote:hover {
   color: var(--link-footlink-color);
+}
+/* Edit — Tables */
+.HyperMD-table-row {
+  transition: 0.25s text-shadow ease-in-out;
+}
+.HyperMD-table-row .cm-hmd-table-sep {
+  transition: 0.25s color ease-in-out;
+}
+.HyperMD-table-row:nth-child(even) {
+  text-shadow: 0 -1px 1px var(--color-green);
+}
+.HyperMD-table-row:nth-child(even) .cm-hmd-table-sep {
+  color: var(--color-green);
+}
+.HyperMD-table-row:nth-child(even):hover .cm-hmd-table-sep {
+  color: var(--color-teal);
+}
+.HyperMD-table-row:nth-child(odd) {
+  text-shadow: 0 -1px 1px var(--color-blue);
+}
+.HyperMD-table-row:nth-child(odd) .cm-hmd-table-sep {
+  color: var(--color-blue);
+}
+.HyperMD-table-row:nth-child(odd):hover .cm-hmd-table-sep {
+  color: var(--color-teal);
+}
+.HyperMD-table-row:hover {
+  text-shadow: 0 -1px 1px var(--color-teal),
+               0 -1px 2px var(--color-teal);
+}
+.HyperMD-table-row.HyperMD-table-row-0 {
+  text-shadow: 0 -1px 1px var(--color-purple-3),
+               0 -1px 2px var(--color-purple-3),
+               0 -1px 4px var(--color-purple-3);
+}
+.HyperMD-table-row.HyperMD-table-row-0:hover {
+  text-shadow: 0 -1px 1px var(--color-purple-3),
+               0 -1px 2px var(--color-purple-3),
+               0 -1px 4px var(--color-purple-3),
+               0 -1px 8px var(--color-purple-3);
+}
+.cm-s-obsidian .HyperMD-table-row.HyperMD-table-row-0 .cm-hmd-table-sep {
+  color: var(--color-purple-3);
+}
+.HyperMD-table-row.HyperMD-table-row-0:hover .cm-hmd-table-sep {
+  color: var(--color-purple-3);
 }
 /* 11 Animations */
 @keyframes activeline-r1 {
