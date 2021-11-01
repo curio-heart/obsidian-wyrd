@@ -8,17 +8,39 @@ It's also not like most other themes.
 
 ## About Wyrd
 
+Wyrd is not minimal. It's expressive, colorful, and animated.
+
 I like to experiment with CSS to create something visually unique, so familiar styles have unusual touches...
 
 ![Wyrd theme preview image](./img/Wyrd-theme-preview.png "Wyrd theme preview image")
 
+![Wyrd theme tables](./img/Wyrd-theme-preview-tables.gif "Wyrd theme tables")
+
+![Wyrd theme links](./img/Wyrd-theme-preview-links.gif "Wyrd theme tables☻")
+
 ... and unusual combinations of markdown can be used to create unique styles not otherwise available through markdown.
 
-![Wyrd theme unusual styles](./img/Wyrd-theme-preview-unusual-styles.gif "Wyrd theme unusual styles")
+![Wyrd theme text blur and redaction](./img/Wyrd-theme-preview-blur-and-redaction.gif "Wyrd theme text blur and redaction")
 
-(What, you thought there was a _reason_ that was censored? **Hah!**)
+(What, you thought there was a _reason_ that was [censored](#Some-Notes) ? **Hah!**)
 
-![Wyrd theme preview](./img/Wyrd-theme-preview.gif "Wyrd theme preview")
+![Wyrd light theme preview](./img/Wyrd-theme-preview-light-theme.gif "Wyrd light theme preview")
+
+![Wyrd dark theme preview](./img/Wyrd-theme-preview-dark-theme.gif "Wyrd dark theme preview")
+
+### Installing
+
+For now, Wyrd is only available through this repository. To install in Obsidian, download `Wyrd.css` and save it in your `.obsidian/themes` folder, then activate the theme within Obsidian's Theme Manager!
+
+I'll update this section once the theme is done enough for a release to the Community Themes. 💜
+
+### Some Notes
+
+It's worth pointing out that some styles present here can provide some measure of privacy for text while Previewing or in Publish.
+
+Please don't mistake these for real privacy measures: they're anything but. CSS does not have the ability to provide real privacy measures for sensitive data.
+
+These features are purely intended for fun, and are marked below under [Features](#Features).
 
 ## Features
 
@@ -28,14 +50,51 @@ I like to experiment with CSS to create something visually unique, so familiar s
   - Including headings (!!)
   - `--editor-font-size` is also manually set via CSS to ensure that the code continues to work as expected in [Obsidian Publish](https://obsidian.md/publish) environents.
 
-### Planned Features
+### Wyrd's Custom Styles
 
-Note: This is currently a bit lagging behind my plans... I'll update this section once I have time!
+Using specific combinations of markdown syntax, Wyrd converts them into additional styles beyond what's standard.
 
-- [ ] Snippet to make font selection locally available for offline use
-  - Necessary, as some fonts from google contain 50+ variations, and would make the CSS file absurdly large
-  - This would also save the performance hit of `@import`ing the fonts
-- [ ] Style Settings compatability
+While many themes choose to use specific HTML tags that aren't commonly used anymore, I've opted for my own preference: Layering markdown syntax in specific ways.
+
+#### Underline
+
+Useage: `_*Underline*_`, `*_Underline_*`, `__**Underline**__`, or `**__Underline__**`
+
+Yep, that's right—double up your preference of bold or italic to get yourself a nifty underline!
+
+_Note: Due to how the parser works, you **must** alternate the symbols for bold or italic to prevent it from being styled as bold._
+
+#### Blur
+
+> Friendly Reminder: This is not a real privacy measure.
+
+Useage: `~~==Blurred text==~~`
+
+Blurs text in both Edit and Preview modes, and reveals it on hover with a drop shadow instead.
+
+The Edit mode effect is much more subdued to provide a visual indication that doesn't render the text illegible.
+
+#### Pseudo-Redaction
+
+> Friendly Reminder: This is not a real privacy measure.
+
+Useage: A bold-italic-bold-italic pattern around the text. Eg, `***___Redacted text___***` or `___***Redacted text***___`
+
+In Preview mode, the text is rendered transparent with a near-black background, and makes it non-selectable. Selecting text around redactions will not select the redacted text itself, and the redacted text is excluded from being copied to the clipboard.
+
+There is presently no unique style for this in Edit mode.
+
+### Want to use the theme for Publish?
+
+1. Copy the theme file to your vault's root and rename it `publish.css`.
+2. Search for `/* Edit */` and delete everything below that line.
+3. Copy any needed snippets into the file.
+    - Be mindful of any rules that need to be at the top of the file! (This includes any `@import`s!)
+    - The rest should be good to put at the bottom of the file.
+4. Save the file.
+5. Upload through Obsidian's `Publish changes` modal!
+
+> Note: Eventually, I plan to have an additional `publish.css` file in this repository to cut out the second step for you.
 
 ## Roadmap
 
@@ -49,16 +108,24 @@ Note: This is currently a bit lagging behind my plans... I'll update this sectio
     - [x] `==Highlight==` (HL) styling
   - Repeating
     - [x] `_*Italic + Italic*_` == underline
-    - [x] `*_Bold + Bold_*` == underline
-    - [-] ~~`====HL + HL====` == ?~~ Does not render as dual highlights due to parsing
-    - [-] ~~`~~~~ST + ST====` == ?~~ Renders as code block until second line of `~~~~` is reached by parser
+    - [x] `**__Bold + Bold__**` == underline
   - Expressive
+    - [x] Bold & Italic
+      - `**_Bold & Italic_**` or `__*Bold & Italic*__`
+    - [x] Blur
+      - `~~==Blur==~~`
+      - Slight blur in edit mode
+      - Heavier blur in preview mode
+      - Hover exposes blurred text
+    - [x] Pseudo-redaction
+      - `***___Redacted text___***` or `___***Redacted text***___`
+      - Text is transparent and non-selectable, with a suitable background for light and dark versions of the theme.
+      - **NOTE: This does not provide security!**
+        - "Redacted" text is _not_ removed from the DOM, which means it's still exposed to anyone smart enough use a browser's `Inspector`.
     - Bold + ...
-      - [?] `**_Bold + Italic_**` == Bold & Italic (Keep? Distinguish?)
       - [ ] `**==Bold + HL==**` == ?
       - [ ] `**~~Bold + ST~~**` == ?
     - Italic + ...
-      - [?] `_**Italic + Bold**_` == Bold & Italic (Keep? Distinguish?)
       - [ ] `_==Italic + HL==_` == ?
       - [ ] `_~~Italic + ST~~_` == ?
     - Highlight + ...
@@ -68,7 +135,6 @@ Note: This is currently a bit lagging behind my plans... I'll update this sectio
     - Strikethrough + ...
       - [ ] `~~==ST + Italic==~~` == ?
       - [ ] `~~==ST + Bold==~~` == ?
-      - [ ] `~~==ST + HL==~~` == blur text
 - Lists
   - [x] Unordered
   - [x] Ordered
@@ -80,8 +146,8 @@ Note: This is currently a bit lagging behind my plans... I'll update this sectio
   - [x] External link
   - [x] Footnotes
 - Tables
-  - [ ] Alternating rows
-  - [ ] Row/cell highlighting on hover
+  - [x] Alternating rows
+  - [x] Row/cell highlighting on hover
 - Code
   - [ ] Code blocks
   - [ ] Inline code
@@ -103,15 +169,18 @@ Note: This is currently a bit lagging behind my plans... I'll update this sectio
 - Status bar
 - Graph view
 - Settings window
-- `@media screen` queries
+- `@media screen` queries (if needed)
 
 ### Plugin Support
+
+#### Core Plugins
+
+#### Community Plugins
 
 - [ ] Style Settings
 - ???
 
 ## Known Issues
 
-- [x] Links disappear in headings
-  - [x] Heading links are not distinct
-- [x] List spacing feels a bit _too_ tight in preview mode
+- Typing while hovering over a list item in Edit Mode results in a constantly flickering transition
+- Links in headings have no transition despite having one styled
