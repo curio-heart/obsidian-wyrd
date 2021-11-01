@@ -62,6 +62,8 @@
   
   --color-green: hsla(80, 70%, 28.5%, 0.95);
   --color-green-hsl: 80, 70%, 28.5%;
+
+  --color-blue: hsl(180, 100%, 26%);
   
   --color-teal: hsl(165, 100%, 26%);
   
@@ -659,12 +661,72 @@ ol ol ol ol ol ol li::marker {
   height: 2px;
 }
 /* Preview — Tables */
-.markdown-preview-view table thead tr th {
-  /* border-bottom: 2px solid var(--color-shadowy-gold);
-  border-left: 5px solid var(--color-shadowy-gold);
-  border-right: 5px solid var(--color-shadowy-gold);
-  border-top: 2px solid var(--color-shadowy-gold); */
-  border-radius: 0.25rem;
+.markdown-preview-view table {
+  box-shadow: 0 -1px 1px var(--color-shadowy-gold),
+              0 -1px 2px var(--color-shadowy-gold),
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary),
+              0 -1px 8px var(--shadow-primary);
+  margin: 0 auto;
+}
+.markdown-preview-view table td,
+.markdown-preview-view table th {
+  border: none;
+  transition: 0.25s box-shadow, text-shadow ease-in-out;
+}
+.markdown-preview-view table thead {
+  box-shadow: 0 -1px 1px var(--color-shadowy-gold),
+              0 -1px 2px var(--color-shadowy-gold),
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary),
+              0 -1px 8px var(--shadow-primary),
+              0 -1px 16px var(--shadow-primary);
+}
+.markdown-preview-view table th {
+  font-size: 1.1rem;
+  box-shadow: 0 -1px 1px var(--color-purple-3) inset,
+              0 -1px 2px var(--color-purple-3) inset,
+              0 -1px 4px var(--color-purple-3) inset,
+              0 -1px 8px var(--color-purple-3) inset;
+  text-shadow: 0 -1px 1px var(--color-purple-3),
+               0 -1px 2px var(--color-purple-3),
+               0 -1px 4px var(--color-purple-3);
+}
+.markdown-preview-view table th:hover {
+  box-shadow: 0 -1px 1px var(--color-purple-3) inset,
+              0 -1px 2px var(--color-purple-3) inset,
+              0 -1px 4px var(--color-purple-3) inset,
+              0 -1px 8px var(--color-purple-3) inset,
+              0 -1px 16px var(--color-purple-3) inset;
+  text-shadow: 0 -1px 1px var(--color-purple-3),
+               0 -1px 2px var(--color-purple-3),
+               0 -1px 4px var(--color-purple-3),
+               0 -1px 8px var(--color-purple-3);
+}
+.markdown-preview-view table tr:nth-child(even) td {
+  font-size: 1.1rem;
+  box-shadow: 0 -1px 1px var(--color-green) inset,
+              0 -1px 2px var(--color-green) inset,
+              0 -1px 4px var(--color-green) inset,
+              0 -1px 8px var(--color-green) inset;
+  text-shadow: 0 -1px 1px var(--color-green);
+}
+.markdown-preview-view table tr:nth-child(odd) td {
+  font-size: 1.1rem;
+  box-shadow: 0 -1px 1px var(--color-blue) inset,
+              0 -1px 2px var(--color-blue) inset,
+              0 -1px 4px var(--color-blue) inset,
+              0 -1px 8px var(--color-blue) inset;
+  text-shadow: 0 -1px 1px var(--color-blue);
+}
+.markdown-preview-view table tr td:hover {
+  box-shadow: 0 -1px 1px var(--color-teal) inset,
+              0 -1px 2px var(--color-teal) inset,
+              0 -1px 4px var(--color-teal) inset,
+              0 -1px 8px var(--color-teal) inset,
+              0 -1px 16px var(--color-teal) inset;
+  text-shadow: 0 -1px 1px var(--color-teal),
+               0 -1px 2px var(--color-teal);
 }
 
 /* Settings */
