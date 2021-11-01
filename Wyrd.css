@@ -360,35 +360,35 @@ strong,
   -webkit-text-stroke-width: 0.05px;
 }
 /* Preview — Text — Underline */
-em em,
-.markdown-preview-view em em {
+em > em,
+.markdown-preview-view em > em {
   font-style: normal;
   text-decoration: underline 0.15rem var(--color-pale-purple);
   -webkit-text-stroke-width: 0;
 }
-strong strong,
-.markdown-preview-view strong strong {
+strong > strong,
+.markdown-preview-view strong > strong {
   font-weight: normal;
   text-decoration: underline 0.15rem var(--color-pale-purple);
   -webkit-text-fill-color: var(--text-normal);
   -webkit-text-stroke-width: 0;
 }
 /* Preview — Text — Bold + Italic */
-em strong,
-strong em,
-.markdown-preview-view em strong,
-.markdown-preview-view strong em {
+em > strong,
+strong > em,
+.markdown-preview-view em > strong,
+.markdown-preview-view strong > em {
   -webkit-text-stroke-width: 0.05px;
 }
 /* Preview — Text — Italic + Underline */
-em strong strong,
-.markdown-preview-view em strong strong {
+em > strong > strong,
+.markdown-preview-view em > strong > strong {
   text-decoration: underline 0.15rem var(--color-pale-purple);
   -webkit-text-stroke-width: 0.5px;
 }
 /* Preview — Text — Bold + Underline */
-strong em em,
-.markdown-preview-view strong em em {
+strong > em > em,
+.markdown-preview-view strong > em > em {
   font-weight: bold;
   text-decoration: underline 0.15rem var(--color-pale-purple);
   -webkit-text-fill-color: var(--text-bold);
@@ -396,8 +396,8 @@ strong em em,
   -webkit-text-stroke-width: 0.05px;
 }
 /* Preview — Text — Visual Redaction */
-strong em strong em,
-.markdown-preview-view strong em strong em {
+strong > em > strong > em,
+.markdown-preview-view strong > em > strong > em {
   background-color: hsl(var(--color-blacker-hsl));
   color: transparent;
   text-decoration: none;
@@ -435,8 +435,8 @@ del:hover,
   color: var(--text-muted);
 }
 /* Preview — Text — Blur */
-del mark,
-.markdown-preview-view del mark {
+del > mark,
+.markdown-preview-view del > mark {
   color: var(--text-faint);
   filter: blur(0.25rem) drop-shadow(0 0 0);
   background-color: transparent;
@@ -445,25 +445,25 @@ del mark,
   transition-duration: 0.25s;
   transition-property: color, filter;
 }
-del mark:hover,
-.markdown-preview-view del mark:hover {
+del > mark:hover,
+.markdown-preview-view del > mark:hover {
   color: var(--text-muted);
   filter: blur(0) drop-shadow(0 0 0.25rem);
 }
-h1 del mark, .markdown-preview-view h1 del mark,
-h2 del mark, .markdown-preview-view h2 del mark,
-h3 del mark, .markdown-preview-view h3 del mark,
-h4 del mark, .markdown-preview-view h4 del mark,
-h5 del mark, .markdown-preview-view h5 del mark,
-h6 del mark, .markdown-preview-view h6 del mark {
+h1 > del > mark, .markdown-preview-view h1 > del > mark,
+h2 > del > mark, .markdown-preview-view h2 > del > mark,
+h3 > del > mark, .markdown-preview-view h3 > del > mark,
+h4 > del > mark, .markdown-preview-view h4 > del > mark,
+h5 > del > mark, .markdown-preview-view h5 > del > mark,
+h6 > del > mark, .markdown-preview-view h6 > del > mark {
   filter: blur(0.5rem) drop-shadow(0 0 0);
 }
-h1 del mark:hover, .markdown-preview-view h1 del mark:hover,
-h2 del mark:hover, .markdown-preview-view h2 del mark:hover,
-h3 del mark:hover, .markdown-preview-view h3 del mark:hover,
-h4 del mark:hover, .markdown-preview-view h4 del mark:hover,
-h5 del mark:hover, .markdown-preview-view h5 del mark:hover,
-h6 del mark:hover, .markdown-preview-view h6 del mark:hover {
+h1 > del > mark:hover, .markdown-preview-view h1 > del > mark:hover,
+h2 > del > mark:hover, .markdown-preview-view h2 > del > mark:hover,
+h3 > del > mark:hover, .markdown-preview-view h3 > del > mark:hover,
+h4 > del > mark:hover, .markdown-preview-view h4 > del > mark:hover,
+h5 > del > mark:hover, .markdown-preview-view h5 > del > mark:hover,
+h6 > del > mark:hover, .markdown-preview-view h6 > del > mark:hover {
   filter: blur(0) drop-shadow(0 0 0.5rem);
 }
 /* Preview — Text — Blockquotes */
