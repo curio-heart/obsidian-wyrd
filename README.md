@@ -86,7 +86,7 @@ Useage: A bold-italic-bold-italic pattern around the text. Eg, `***___Redacted t
 
 In Preview mode, the text is rendered transparent with a near-black background, and makes it non-selectable. Selecting text around redactions will not select the redacted text itself, and the redacted text is excluded from being copied to the clipboard.
 
-There is presently no unique style for this in Edit mode.
+> There is presently no unique style for this in Edit mode. CodeMirror makes it challenging to style this _specific_ combination without affecting the [underlines](#Underline) and some other styles as well.
 
 ### Want to use the theme for Publish?
 
