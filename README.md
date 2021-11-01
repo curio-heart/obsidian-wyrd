@@ -8,7 +8,11 @@ It's also not like most other themes.
 
 ## About Wyrd
 
-Wyrd is not minimal. It's expressive, colorful, and animated.
+> A quick note: Wyrd is still very much a work-in-progress, as visible with the [roadmap](#Roadmap) below. There are a number of sections that I haven't had a chance to change yet; the work so far represents the vast majority of what I use on a regular basis.
+
+Wyrd is not minimal.
+
+It's expressive, colorful, and animated.
 
 I like to experiment with CSS to create something visually unique, so familiar styles have unusual touches...
 
@@ -16,7 +20,7 @@ I like to experiment with CSS to create something visually unique, so familiar s
 
 ![Wyrd theme tables](./img/Wyrd-theme-preview-tables.gif "Wyrd theme tables")
 
-![Wyrd theme links](./img/Wyrd-theme-preview-links.gif "Wyrd theme tables☻")
+![Wyrd theme links](./img/Wyrd-theme-preview-links.gif "Wyrd theme links")
 
 ... and unusual combinations of markdown can be used to create unique styles not otherwise available through markdown.
 
@@ -62,7 +66,7 @@ Useage: `_*Underline*_`, `*_Underline_*`, `__**Underline**__`, or `**__Underline
 
 Yep, that's right—double up your preference of bold or italic to get yourself a nifty underline!
 
-_Note: Due to how the parser works, you **must** alternate the symbols for bold or italic to prevent it from being styled as bold._
+> Note: Due to how the parser works, you **must** alternate the symbols for bold or italic to prevent it from being styled as bold.
 
 #### Blur
 
@@ -97,6 +101,8 @@ There is presently no unique style for this in Edit mode.
 > Note: Eventually, I plan to have an additional `publish.css` file in this repository to cut out the second step for you.
 
 ## Roadmap
+
+Right now, the roadmap doesn't reflect any particular priority of items. Please don't take their current placement as reflective of their importance.
 
 ### Note Content
 
