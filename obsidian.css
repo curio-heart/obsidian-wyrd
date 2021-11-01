@@ -1,9 +1,15 @@
 /**
-
+ Wyrd v0.1.0
+  A purple-hued, low-contrast, dual-mode theme
+    created by Curio Heart for [Obsidian.md](https://obsidian.md/)
+  
+  Repo: https://github.com/curio-heart/obsidian-wyrd
+  
+  Table of Contents coming soon~
  */
 
 /**
-  Font imports
+  1 Font imports
  */
 /* Preview: Neucha */
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
@@ -14,7 +20,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
 
 /**
-  Custom list counters
+  2 Custom list counters
  */
 @counter-style wyrd {
   system: cyclic;
@@ -23,10 +29,10 @@
 }
 
 /**
-  Core Defaults
+  3 Core Defaults
  */
 :root {
-  /* Fonts */
+  /* 3.1 Fonts */
   --default-font: Neucha, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
   --font-heading: var(--default-font);
   --mermaid-font: var(--default-font);
@@ -36,7 +42,7 @@
   /* Only active within Publish spaces; body styling overrides this within Obsidian */
   --editor-font-size: 16px;
 
-  /* Color Palette */
+  /* 3.2 Color Palette */
   --color-blacker: hsl(270, 10%, 5%);
   --color-blacker-hsl: 270, 10%, 5%;
   --color-black: hsl(270, 10%, 10%);
@@ -87,7 +93,7 @@
   --color-bold: hsl(12, 65%, 62%);
   --color-italic: hsl(346, 64%, 57%);
 
-  /* Various Settings */
+  /* 3.3 Various Settings */
   --text-stroke-width: 0.2px;
   --link-footlink-stroke-width: 0.1px;
   --heading-stroke-width: 0.01px;
@@ -99,7 +105,7 @@
 }
 
 /**
-  Dark Mode defaults
+  4 Dark Mode defaults
  */
 .theme-dark {
   --background-primary: var(--color-grey-03);
@@ -117,7 +123,7 @@
 }
 
 /**
-Light Mode defaults
+  5 Light Mode defaults
 */
 .theme-light {
   --background-primary: var(--color-grey-10);
@@ -135,7 +141,7 @@ Light Mode defaults
 }
 
 /**
-  Mixed defaults
+  6 Mixed defaults
  */
 .theme-dark,
 .theme-light {
@@ -166,12 +172,12 @@ Light Mode defaults
   --scrollbar-thumb-bg: hsla(var(--scrollbar-hsl), 0.1);
   --highlight-mix-blend-mode: lighten;
 }
-/* Publish */
+/* 7 Publish */
 .published-container {
   font-size: var(--editor-font-size);
   position: relative;
 }
-/* Preview */
+/* 8 Preview */
 /* Preview — Headings */
 .markdown-preview-view h1,
 .markdown-preview-view h2,
@@ -729,7 +735,7 @@ ol ol ol ol ol ol li::marker {
                0 -1px 2px var(--color-teal);
 }
 
-/* Settings */
+/* 9 Settings */
 button,
 select,
 input,
@@ -738,7 +744,7 @@ input,
 .mod-settings input {
   font-family: var(--default-font);
 }
-/* Edit */
+/* 10 Edit */
 /* Edit — Headings */
 .cm-s-obsidian .cm-header {
   /* font-family: var(--font-heading); */
@@ -1178,7 +1184,7 @@ span.cm-formatting-quote-6,
 .cm-s-obsidian span.cm-link.cm-hmd-footnote:hover {
   color: var(--link-footlink-color);
 }
-
+/* 11 Animations */
 @keyframes activeline-r1 {
   from {
     transform: rotate(0turn);

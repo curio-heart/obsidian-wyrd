@@ -34,9 +34,9 @@ I like to experiment with CSS to create something visually unique, so familiar s
 
 ### Installing
 
-For now, Wyrd is only available through this repository. To install in Obsidian, download `Wyrd.css` and save it in your `.obsidian/themes` folder, then activate the theme within Obsidian's Theme Manager!
+For now, Wyrd is only available through this repository. To install in Obsidian, download `obsidian.css` and save it in your `.obsidian/themes` folder as `Wyrd.css`, then activate the theme within Obsidian's Theme Manager.
 
-I'll update this section once the theme is done enough for a release to the Community Themes. 💜
+I've also submitted the theme to the Community Themes repo as well (hence the file's renaming); hopefully it'll be available directly in Obsidian soon! 💜
 
 ### Some Notes
 
