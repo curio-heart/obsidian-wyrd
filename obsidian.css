@@ -746,9 +746,8 @@ input,
 }
 /* 10 Edit */
 /* Edit — Headings */
-.cm-s-obsidian .cm-header {
+.cm-s-obsidian .cm-formatting-header {
   padding-left: 0.5rem;
-  /* padding-right: 0.6rem; */
 }
 .cm-s-obsidian .HyperMD-header-1 {
   font-size: calc(var(--editor-font-size) * 1.6);
