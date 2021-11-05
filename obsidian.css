@@ -1,5 +1,5 @@
 /**
- Wyrd v0.1.0
+ Wyrd v0.2.0
   A purple-hued, low-contrast, dual-mode theme
     created by Curio Heart for [Obsidian.md](https://obsidian.md/)
   
@@ -793,9 +793,17 @@ ol ol ol ol ol ol li::marker {
 .page-header {
   display: none;
 }
+.site-footer {
+  text-align: right;
+}
+.site-footer a:before {
+  content: '<a href="https://github.com/curio-heart/obsidian-wyrd>Site Theme by Curio Heart</a>';
+  display: inline-block;
+  left: 0;
+}
 
-/*
- Ready for publishing? Select everything from here down, delete,
+/* Ready for publishing?
+  Select everything from here down, delete,
   and add in any snippets you need! Remember, `@import` statements
   go at the top of the file!
  */
