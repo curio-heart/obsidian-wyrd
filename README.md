@@ -177,9 +177,16 @@ Right now, the roadmap doesn't reflect any particular priority of items. Please 
 - Settings window
 - `@media screen` queries (if needed)
 
+### Publish Support
+
+- [x] Page header (hidden)
+- [x] File explorer
+
 ### Plugin Support
 
 #### Core Plugins
+
+- [x] Tag Pane
 
 #### Community Plugins
 

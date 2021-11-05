@@ -625,7 +625,8 @@ ol ol ol ol ol ol li::marker {
 .external-link:hover {
   color: var(--link-external-color);
 }
-.footnote-link {
+.footnote-link,
+.footnote-ref {
   border-radius: 0.25rem;
   border-bottom: 1px solid var(--color-pale-purple);
   color: var(--text-normal);
@@ -634,7 +635,8 @@ ol ol ol ol ol ol li::marker {
   transition: 0.25s color ease-in-out;
   -webkit-text-stroke: var(--text-stroke-width) var(--link-footlink-color);
 }
-.footnote-link:hover {
+.footnote-link:hover,
+.footnote-ref:hover {
   color: var(--link-footlink-color);
 }
 .markdown-preview-view h1 > .external-link,
@@ -734,6 +736,69 @@ ol ol ol ol ol ol li::marker {
   text-shadow: 0 -1px 1px var(--color-teal),
                0 -1px 2px var(--color-teal);
 }
+/* Preview, Publish — File Tree */
+.tree-item,
+.nav-file-title,
+.nav-folder-title {
+  transition: 0.25s border, border-radius, background, box-shadow ease-in-out;
+}
+.nav-files-container .tree-item:hover,
+.nav-files-container .nav-file-title:hover {
+  border-radius: 0.5rem 0.5rem;
+  border-left: 1px solid var(--color-shadowy-gold);
+  border-right: 1.5px solid var(--color-shadowy-gold);
+  box-shadow: 0 -1px 1px var(--color-green) inset,
+              0 -1px 2px var(--color-green) inset,
+              0 -1px 4px var(--color-green) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
+}
+.nav-files-container .nav-folder-title:hover {
+  border-radius: 0.5rem 0.5rem;
+  border-left: 1px solid var(--color-shadowy-gold);
+  border-right: 1.5px solid var(--color-shadowy-gold);
+  box-shadow: 0 -1px 1px var(--color-teal) inset,
+              0 -1px 2px var(--color-teal) inset,
+              0 -1px 4px var(--color-teal) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
+}
+.nav-files-container .tree-item.mod-active,
+.nav-files-container .nav-file-title.is-active {
+  border-radius: 0.5rem 0.5rem;
+  border-left: 1px solid var(--color-magic-gold);
+  border-right: 1.5px solid var(--color-magic-gold);
+  box-shadow: 0 -1px 1px var(--color-purple-3) inset,
+              0 -1px 2px var(--color-purple-3) inset,
+              0 -1px 4px var(--color-purple-3) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
+}
+/* Preview — Tag Pane */
+.tag-pane-tag {
+  transition: 0.25s background, border, border-radius, box-shadow ease-in-out;
+}
+.tag-pane-tag:hover {
+  border-radius: 0.5rem 0.5rem;
+  border-left: 1px solid var(--color-shadowy-gold);
+  border-right: 1.5px solid var(--color-shadowy-gold);
+  box-shadow: 0 -1px 1px var(--color-blue) inset,
+              0 -1px 2px var(--color-blue) inset,
+              0 -1px 4px var(--color-blue) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
+}
+/* Publish */
+/* Publish — Header */
+.page-header {
+  display: none;
+}
+
+/*
+ Ready for publishing? Select everything from here down, delete,
+  and add in any snippets you need! Remember, `@import` statements
+  go at the top of the file!
+ */
 
 /* 9 Settings */
 button,
@@ -745,6 +810,10 @@ input,
   font-family: var(--default-font);
 }
 /* 10 Edit */
+/* Edit — Metadata */
+.cm-hmd-frontmatter.cm-overlay.cm-spell-error {
+  background-image: none;
+}
 /* Edit — Headings */
 .cm-s-obsidian .cm-formatting-header {
   padding-left: 0.5rem;
