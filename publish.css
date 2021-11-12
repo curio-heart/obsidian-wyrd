@@ -1,0 +1,825 @@
+/**
+ Wyrd v0.2.0
+  A purple-hued, low-contrast, dual-mode theme
+    created by Curio Heart for [Obsidian.md](https://obsidian.md/)
+  
+  Repo: https://github.com/curio-heart/obsidian-wyrd
+  
+  Table of Contents coming soon~
+ */
+
+/**
+  1 Fonts
+ */
+/* Preview: Neucha */
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+/* Edit:  */
+/* Monospace: Space Mono — NOT SELECTED FOR LIGATURES */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* Headings: Birthstone */
+@import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
+
+/**
+  2 Custom list counters
+ */
+ @counter-style wyrd {
+  system: cyclic;
+  symbols: "\2192";
+  suffix: " ";
+}
+
+/**
+  3 Core Defaults
+ */
+:root {
+  /* 3.1 Fonts */
+  --default-font: Neucha, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
+  --font-heading: var(--default-font);
+  --mermaid-font: var(--default-font);
+  --reveal-font: var(--default-font);
+  --font-monospace: 'Space Mono', 'Source Code Pro', monospace;
+  --font-heading: Birthstone;
+  /* Only active within Publish spaces; body styling overrides this within Obsidian */
+  --editor-font-size: 16px;
+
+  /* 3.2 Color Palette */
+  --color-blacker: hsl(270, 10%, 5%);
+  --color-blacker-hsl: 270, 10%, 5%;
+  --color-black: hsl(270, 10%, 10%);
+  --color-black-hsl: 270, 10%, 10%;
+  --color-grey-00: hsl(270, 10%, 12.5%); /* dark mode */
+  --color-grey-01: hsl(270, 10%, 15%);
+  --color-grey-02: hsl(270, 10%, 17.5%);
+  --color-grey-03: hsl(270, 10%, 20%);
+  --color-grey-04: hsl(270, 8%, 35%); /* text */
+  --color-grey-05: hsl(270, 8%, 50%);
+  --color-grey-06: hsl(270, 13%, 65%);
+  --color-grey-07: hsl(270, 10%, 72.5%); /* light mode */
+  --color-grey-08: hsl(270, 10%, 75%);
+  --color-grey-09: hsl(270, 10%, 77.5%);
+  --color-grey-10: hsl(270, 10%, 80%);
+  
+  --color-hot-pink: hsl(330, 85%, 47.2%);
+  
+  --color-red-pink: hsl(340, 85%, 48.3%);
+
+  --color-shadowy-gold: hsl(44, 100%, 29.3%);
+  --color-magic-gold: hsl(37, 100%, 50%);
+  
+  --color-green: hsla(80, 70%, 28.5%, 0.95);
+  --color-green-hsl: 80, 70%, 28.5%;
+
+  --color-blue: hsl(180, 100%, 26%);
+  
+  --color-teal: hsl(165, 100%, 26%);
+  
+  --color-cyan: hsla(175, 100%, 50%);
+  --color-cyan-hsl: 175, 100%, 50%;
+  --color-cyan-desat: hsla(175, 45%, 50%);
+  --color-cyan-desat-hsl: 175, 45%, 50%;
+  
+  --color-deep-indigo: hsl(250, 80%, 3.5%);
+  --color-deep-indigo-hsl: 250, 80%, 3.5%;
+
+  --color-deep-purple: hsl(270, 100%, 10%);
+  --color-deep-purple-hsl: 270, 100%, 10%;
+  --color-purple-1: hsl(270, 60%, 40%);
+  --color-purple-2: hsl(270, 60%, 45%);
+  --color-purple-3: hsl(270, 65%, 58.8%);
+  --color-purple-4: hsl(270, 100%, 61.5%);
+  --color-pale-purple: hsl(270, 100%, 70%);
+  --color-pale-purple-hsl: 270, 100%, 70%;
+  
+  --color-bold: hsl(12, 65%, 62%);
+  --color-italic: hsl(346, 64%, 57%);
+
+  /* 3.3 Various Settings */
+  --text-stroke-width: 0.2px;
+  --link-footlink-stroke-width: 0.1px;
+  --heading-stroke-width: 0.01px;
+  --link-external-color: var(--color-cyan-desat);
+  --link-internal-color: var(--color-magic-gold);
+  --link-internal-unresolved-color: var(--color-shadowy-gold);
+  --link-footlink-color: var(--color-purple-3);
+  --link-url-string-color: var(--color-teal);
+
+  --transition-duration-instant: 0.05s;
+  --transition-duration-fast: 0.15s;
+  --transition-duration-normal: 0.25s;
+}
+
+/**
+  4 Dark Mode defaults
+ */
+.theme-dark {
+  --background-primary: var(--color-grey-03);
+  --background-primary-alt: var(--color-grey-02);
+  --background-secondary: var(--color-grey-01);
+  --background-secondary-alt: var(--color-grey-00);
+  --text-normal: var(--color-grey-06);
+  --text-muted: var(--color-grey-05);
+  --text-muted-rgb: 77, 70, 83;
+  --text-faint: var(--color-grey-04);
+  --text-on-accent: var(--text-normal);
+  --scrollbar-hsl: var(--color-deep-purple-hsl);
+  --text-strike: var(--color-grey-02);
+  --shadow-primary: var(--color-grey-00);
+}
+
+/**
+  5 Light Mode defaults
+*/
+.theme-light {
+  --background-primary: var(--color-grey-10);
+  --background-primary-alt: var(--color-grey-09);
+  --background-secondary: var(--color-grey-08);
+  --background-secondary-alt: var(--color-grey-07);
+  --text-normal: var(--color-grey-04);
+  --text-muted: var(--color-grey-05);
+  --text-muted-rgb: 77, 70, 83;
+  --text-faint: var(--color-grey-06);
+  --text-on-accent: var(--text-faint);
+  --scrollbar-hsl: var(--color-pale-purple-hsl);
+  --text-strike: var(--color-grey-08);
+  --shadow-primary: var(--color-grey-06);
+}
+
+/**
+  6 Mixed defaults
+ */
+.theme-dark,
+.theme-light {
+  --background-modifier-border: var(--color-shadowy-gold);
+  --background-modifier-form-field: hsla(var(--color-black-hsl), 0.3);
+  --background-modifier-form-field-highlighted: hsla(var(--color-blacker-hsl), 0.22);
+  --background-modifier-box-shadow: hsla(var(--color-black-hsl), 0.3);
+  --background-modifier-success: var(--color-teal);
+  --background-modifier-error: var(--color-hot-pink);
+  --background-modifier-error-rgb: 223, 18, 120;
+  --background-modifier-error-hover: var(--color-red-pink);
+  --background-modifier-cover: hsl(var(--color-deep-indigo-hsl), 0.8);
+  --text-accent: var(--color-purple-3);
+  --text-accent-hover: var(--color-purple-4);
+  --text-error: var(--color-hot-pink);
+  --text-error-hover: var(--color-red-pink);
+  --text-highlight-bg: hsla(var(--color-cyan-desat-hsl), 0.6);
+  --text-highlight-bg-active: hsla(var(--color-cyan-hsl), 0.4);
+  --text-selection: hsla(var(--color-green-hsl), 0.95);
+  --interactive-normal: var(--color-grey-01);
+  --interactive-hover: var(--color-grey-02);
+  --interactive-accent: var(--color-purple-1);
+  --interactive-accent-rgb: 102, 41, 163;
+  --interactive-accent-hover: var(--color-purple-2);
+  --interactive-success: var(--color-teal);
+  --scrollbar-active-thumb-bg: hsla(var(--scrollbar-hsl), 0.2);
+  --scrollbar-bg: hsla(var(--scrollbar-hsl), 0.05);
+  --scrollbar-thumb-bg: hsla(var(--scrollbar-hsl), 0.1);
+  --highlight-mix-blend-mode: lighten;
+}
+/* 7 Publish */
+.published-container {
+  font-size: var(--editor-font-size);
+  position: relative;
+}
+/* 8 Preview */
+/* Preview — Headings */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5,
+.markdown-preview-view h6 {
+  /* font-family: var(--font-heading); */
+  padding-left: 0.25rem;
+  padding-right: 0.4rem;
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+.markdown-preview-view h1,
+.markdown-preview-view h1 a {
+  font-size: calc(var(--editor-font-size) * 2.5);
+  left: var(--editor-font-size);
+  text-shadow: 0 -1px calc(var(--editor-font-size) / 16) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 16) var(--color-purple-4),
+               0 -1px calc(var(--editor-font-size) / 8) var(--color-purple-4),
+               0 -1px calc(var(--editor-font-size) / 8) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 4) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 2) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 1) var(--shadow-primary);
+  -webkit-text-fill-color: var(--text-normal);
+  -webkit-text-stroke-color: var(--color-purple-3);
+  -webkit-text-stroke-width: 0.01px;
+}
+.markdown-preview-view h1::before {
+  content: ' ';
+  background: linear-gradient(90deg, var(--color-purple-3), var(--color-purple-3) 25%, #00000000 75%);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 20px;
+  height: calc(var(--editor-font-size) * 3.3);
+  left: calc(var(--editor-font-size) * -2);
+  margin-top: 1.25rem;
+  position: absolute;
+  top: calc(var(--editor-font-size) * -1);
+  width: calc(100% + .25rem);
+  z-index: -1;
+}
+.markdown-preview-view h2,
+.markdown-preview-view h2 a {
+  font-size: calc(var(--editor-font-size) * 2.1);
+  left: var(--editor-font-size);
+  /* margin-top: calc(var(--editor-font-size) * 2); */
+  text-shadow: 0 -1px calc(var(--editor-font-size) / 16) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 16) var(--color-red-pink),
+               0 -1px calc(var(--editor-font-size) / 8) var(--color-red-pink),
+               0 -1px calc(var(--editor-font-size) / 8) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 4) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 2) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 1) var(--shadow-primary);
+  -webkit-text-fill-color: var(--text-normal);
+  -webkit-text-stroke-color: var(--color-hot-pink);
+  -webkit-text-stroke-width: 0.01px;
+}
+.markdown-preview-view h2::before {
+  content: '';
+  background: linear-gradient(90deg, var(--color-hot-pink), var(--color-hot-pink) 25%, #00000000 75%);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 20px;
+  height: calc(var(--editor-font-size) * 2.7);
+  left: calc(var(--editor-font-size) * -2);
+  position: absolute;
+  top: calc(var(--editor-font-size) / 3);
+  width: calc(100% + .25rem);
+  z-index: -1;
+}
+.published-container .markdown-preview-view h2::before {
+  top: calc(var(--editor-font-size) * -0.65);
+}
+.markdown-preview-view h3,
+.markdown-preview-view h3 a {
+  font-size: calc(var(--editor-font-size) * 1.8);
+  left: var(--editor-font-size);
+  text-shadow: 0 -1px calc(var(--editor-font-size) / 16) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 16) var(--color-magic-gold),
+               0 -1px calc(var(--editor-font-size) / 8) var(--color-magic-gold),
+               0 -1px calc(var(--editor-font-size) / 8) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 4) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 2) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 1) var(--shadow-primary);
+  -webkit-text-fill-color: var(--text-normal);
+  -webkit-text-stroke-color: var(--color-shadowy-gold);
+  -webkit-text-stroke-width: 0.01px;
+}
+.markdown-preview-view h3::before {
+  content: '';
+  background: linear-gradient(90deg, var(--color-shadowy-gold), var(--color-shadowy-gold) 25%, #00000000 75%);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 20px;
+  height: calc(var(--editor-font-size) * 2.35);
+  left: calc(var(--editor-font-size) * -2);
+  position: absolute;
+  top: calc(var(--editor-font-size) / 5);
+  width: calc(100% + .25rem);
+  z-index: -1;
+}
+.markdown-preview-view h4,
+.markdown-preview-view h4 a {
+  font-size: calc(var(--editor-font-size) * 1.55);
+  left: var(--editor-font-size);
+  text-shadow: 0 -1px calc(var(--editor-font-size) / 16) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 16) var(--color-green),
+               0 -1px calc(var(--editor-font-size) / 8) var(--color-green),
+               0 -1px calc(var(--editor-font-size) / 8) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 4) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 2) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 1) var(--shadow-primary);
+  -webkit-text-fill-color: var(--text-normal);
+  -webkit-text-stroke-color: var(--color-green);
+  -webkit-text-stroke-width: 0.01px;
+}
+.markdown-preview-view h4::before {
+  content: '';
+  background: linear-gradient(90deg, var(--color-green), var(--color-green) 25%, #00000000 75%);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 20px;
+  height: calc(var(--editor-font-size) * 2.1);
+  left: calc(var(--editor-font-size) * -2);
+  position: absolute;
+  top: calc(var(--editor-font-size) / 7);
+  width: calc(100% + .25rem);
+  z-index: -1;
+}
+.markdown-preview-view h5,
+.markdown-preview-view h5 a {
+  font-size: calc(var(--editor-font-size) * 1.35);
+  left: var(--editor-font-size);
+  text-shadow: 0 -1px calc(var(--editor-font-size) / 16) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 16) var(--color-teal),
+               0 -1px calc(var(--editor-font-size) / 8) var(--color-teal),
+               0 -1px calc(var(--editor-font-size) / 8) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 4) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 2) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 1) var(--shadow-primary);
+  -webkit-text-fill-color: var(--text-normal);
+  -webkit-text-stroke-color: var(--color-teal);
+  -webkit-text-stroke-width: 0.01px;
+}
+.markdown-preview-view h5::before {
+  content: '';
+  background: linear-gradient(90deg, var(--color-teal), var(--color-teal) 25%, #00000000 75%);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 20px;
+  height: calc(var(--editor-font-size) * 1.8);
+  left: calc(var(--editor-font-size) * -2);
+  position: absolute;
+  width: calc(100% + .25rem);
+  top: calc(var(--editor-font-size) / 7.5);
+  z-index: -1;
+}
+.markdown-preview-view h6,
+.markdown-preview-view h6 a {
+  font-size: calc(var(--editor-font-size) * 1.2);
+  left: var(--editor-font-size);
+  text-shadow: 0 -1px calc(var(--editor-font-size) / 16) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 16) var(--color-cyan),
+               0 -1px calc(var(--editor-font-size) / 8) var(--color-cyan),
+               0 -1px calc(var(--editor-font-size) / 8) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 4) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 2) var(--shadow-primary),
+               0 -1px calc(var(--editor-font-size) / 1) var(--shadow-primary);
+  -webkit-text-fill-color: var(--text-normal);
+  -webkit-text-stroke-color: var(--color-cyan-desat);
+  -webkit-text-stroke-width: 0.01px;
+}
+.markdown-preview-view h6::before {
+  content: '';
+  background: linear-gradient(90deg, var(--color-cyan-desat), var(--color-cyan-desat) 25%, #00000000 75%);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 20px;
+  height: calc(var(--editor-font-size) * 1.6);
+  left: calc(var(--editor-font-size) * -2);
+  position: absolute;
+  width: calc(100% + .25rem);
+  top: calc(var(--editor-font-size) / 9);
+  z-index: -1;
+}
+/* Preview — Text */
+/* Preview — Text — Italic */
+em,
+.markdown-preview-view em {
+  -webkit-text-stroke-color: var(--color-italic);
+  -webkit-text-stroke-width: 0.5px;
+}
+/* Preview — Text — Bold */
+strong,
+.markdown-preview-view strong {
+  -webkit-text-fill-color: var(--color-bold);
+  -webkit-text-stroke-width: 0.05px;
+}
+/* Preview — Text — Underline */
+em > em,
+.markdown-preview-view em > em {
+  font-style: normal;
+  text-decoration: underline 0.15rem var(--color-pale-purple);
+  -webkit-text-stroke-width: 0;
+}
+strong > strong,
+.markdown-preview-view strong > strong {
+  font-weight: normal;
+  text-decoration: underline 0.15rem var(--color-pale-purple);
+  -webkit-text-fill-color: var(--text-normal);
+  -webkit-text-stroke-width: 0;
+}
+/* Preview — Text — Bold + Italic */
+em > strong,
+strong > em,
+.markdown-preview-view em > strong,
+.markdown-preview-view strong > em {
+  -webkit-text-stroke-width: 0.05px;
+}
+/* Preview — Text — Italic + Underline */
+em > strong > strong,
+.markdown-preview-view em > strong > strong {
+  text-decoration: underline 0.15rem var(--color-pale-purple);
+  -webkit-text-stroke-width: 0.5px;
+}
+/* Preview — Text — Bold + Underline */
+strong > em > em,
+.markdown-preview-view strong > em > em {
+  font-weight: bold;
+  text-decoration: underline 0.15rem var(--color-pale-purple);
+  -webkit-text-fill-color: var(--text-bold);
+  -webkit-text-stroke-color: var(--text-normal);
+  -webkit-text-stroke-width: 0.05px;
+}
+/* Preview — Text — Visual Redaction */
+strong > em > strong > em,
+.markdown-preview-view strong > em > strong > em {
+  background-color: hsl(var(--color-blacker-hsl));
+  color: transparent;
+  text-decoration: none;
+  user-select: none;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-color: transparent;
+}
+/* em em strong strong {} */
+/* Preview — Text — Highlight */
+mark,
+.markdown-preview-view mark {
+  color: var(--text-normal);
+  border-radius: 0.8rem 0.4rem;
+  filter: drop-shadow(0 0 0 transparent);
+  text-shadow: 0 0 0 var(--shadow-primary);
+  transition-duration: var(--transition-duration-fast);
+  transition-property: color, filter, text-shadow;
+  transition-timing-function: ease-in-out;
+}
+mark:hover,
+.markdown-preview-view mark:hover {
+  color: var(--color-grey-07);
+  filter: drop-shadow(0 -1px 0.15rem var(--color-cyan-desat));
+  text-shadow: 0 -1px 1.5px var(--shadow-primary);
+}
+/* Preview — Text — Strikethrough */
+del,
+.markdown-preview-view del {
+  color: var(--text-strike);
+  text-decoration-line: none;
+  transition: var(--transition-duration-normal) color ease-in-out;
+}
+del:hover,
+.markdown-preview-view del:hover {
+  color: var(--text-muted);
+}
+/* Preview — Text — Blur */
+del > mark,
+.markdown-preview-view del > mark {
+  color: var(--text-faint);
+  filter: blur(0.25rem) drop-shadow(0 0 0);
+  background-color: transparent;
+  transition-timing-function: ease-in-out;
+  transition-duration: var(--transition-duration-normal);
+  transition-property: color, filter;
+}
+del > mark:hover,
+.markdown-preview-view del > mark:hover {
+  color: var(--text-muted);
+  filter: blur(0) drop-shadow(0 0 0.25rem);
+}
+h1 > del > mark, .markdown-preview-view h1 > del > mark,
+h2 > del > mark, .markdown-preview-view h2 > del > mark,
+h3 > del > mark, .markdown-preview-view h3 > del > mark,
+h4 > del > mark, .markdown-preview-view h4 > del > mark,
+h5 > del > mark, .markdown-preview-view h5 > del > mark,
+h6 > del > mark, .markdown-preview-view h6 > del > mark {
+  filter: blur(0.5rem) drop-shadow(0 0 0);
+}
+h1 > del > mark:hover, .markdown-preview-view h1 > del > mark:hover,
+h2 > del > mark:hover, .markdown-preview-view h2 > del > mark:hover,
+h3 > del > mark:hover, .markdown-preview-view h3 > del > mark:hover,
+h4 > del > mark:hover, .markdown-preview-view h4 > del > mark:hover,
+h5 > del > mark:hover, .markdown-preview-view h5 > del > mark:hover,
+h6 > del > mark:hover, .markdown-preview-view h6 > del > mark:hover {
+  filter: blur(0) drop-shadow(0 0 0.5rem);
+}
+/* Preview — Text — Blockquotes */
+blockquote,
+.markdown-preview-view blockquote {
+  border: 0;
+  border-radius: 0.5rem;
+  border-left: 5px solid var(--color-purple-3);
+  border-right: 1px solid var(--color-purple-3);
+  box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-magic-gold) inset;
+  margin-inline-start: 5px;
+  margin-inline-end: 5px;
+  transition: var(--transition-duration-instant) box-shadow ease-in-out;
+}
+blockquote:hover,
+.markdown-preview-view blockquote:hover {
+  box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-magic-gold) inset,
+              0 -1px 4px var(--color-magic-gold) inset,
+              0 -1px 8px var(--color-magic-gold) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary),
+              0 -1px 8px var(--shadow-primary),
+              0 -1px 16px var(--shadow-primary),
+              0 -1px 1px var(--color-shadowy-gold),
+              0 -1px 2px var(--color-shadowy-gold),
+              0 -1px 4px var(--color-shadowy-gold),
+              0 -1px 8px var(--color-shadowy-gold);
+}
+blockquote blockquote,
+.markdown-preview-view blockquote blockquote {
+  border-color: var(--color-red-pink);
+}
+blockquote blockquote blockquote,
+.markdown-preview-view blockquote blockquote blockquote {
+  border-color: var(--color-shadowy-gold);
+}
+blockquote blockquote blockquote blockquote,
+.markdown-preview-view blockquote blockquote blockquote blockquote {
+  border-color: var(--color-green);
+}
+blockquote blockquote blockquote blockquote blockquote,
+.markdown-preview-view blockquote blockquote blockquote blockquote blockquote {
+  border-color: var(--color-teal);
+}
+blockquote blockquote blockquote blockquote blockquote blockquote,
+.markdown-preview-view blockquote blockquote blockquote blockquote blockquote blockquote {
+  border-color: var(--color-cyan-desat);
+}
+/* Preview — Lists */
+ul, ol {
+  padding-inline-start: 15px;
+}
+ul li p,
+ol li p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+::marker {
+  position: relative;
+  text-align: right;
+}
+/* Preview — Lists — Unordered */
+ul,
+ul ul,
+ul ul ul,
+ul ul ul ul,
+ul ul ul ul ul,
+ul ul ul ul ul ul {
+  list-style-type: '\2192';
+}
+li {
+  border-radius: 0.25rem;
+  padding-bottom: 0.2rem;
+  padding-left: 0.6rem;
+  padding-right: 0.2rem;
+  transition: var(--transition-duration-normal) box-shadow ease-in-out;
+}
+li:hover {
+  box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
+              0 -1px 2px var(--color-magic-gold) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
+}
+ul li::marker {
+  color: var(--color-purple-3);
+}
+ul ul li::marker {
+  color: var(--color-hot-pink);
+}
+ul ul ul li::marker {
+  color: var(--color-shadowy-gold);
+}
+ul ul ul ul li::marker {
+  color: var(--color-green);
+}
+ul ul ul ul ul li::marker {
+  color: var(--color-teal);
+}
+ul ul ul ul ul ul li::marker {
+  color: var(--color-cyan-desat);
+}
+/* Preview — Lists — Ordered */
+ol li::marker {
+  color: var(--color-purple-3);
+}
+ol ol li::marker {
+  color: var(--color-hot-pink);
+}
+ol ol ol li::marker {
+  color: var(--color-shadowy-gold);
+}
+ol ol ol ol li::marker {
+  color: var(--color-green);
+}
+ol ol ol ol ol li::marker {
+  color: var(--color-teal);
+}
+ol ol ol ol ol ol li::marker {
+  color: var(--color-cyan-desat);
+}
+/* Preview — Links */
+.markdown-preview-view .internal-link {
+  color: var(--color-normal);
+  border-bottom: 1px solid var(--color-magic-gold);
+  border-radius: 0.25rem;
+  text-decoration-line: none;
+  transition: var(--transition-duration-normal) color ease-in-out;
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-internal-color);
+}
+.markdown-preview-view .internal-link:hover {
+  color: var(--link-internal-color);
+}
+.markdown-preview-view .internal-link.is-unresolved {
+  color: var(--text-muted);
+  opacity: 1;
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-internal-unresolved-color);
+}
+.markdown-preview-view .internal-link.is-unresolved:hover {
+  color: var(--link-internal-unresolved-color);
+}
+.external-link {
+  border-top: 1px solid var(--color-shadowy-gold);
+  border-radius: 0.25rem;
+  color: var(--text-normal);
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-external-color);
+  text-decoration-line: none;
+  transition: var(--transition-duration-normal) color ease-in-out;
+}
+.external-link:hover {
+  color: var(--link-external-color);
+}
+.footnote-link,
+.footnote-ref {
+  border-radius: 0.25rem;
+  border-bottom: 1px solid var(--color-pale-purple);
+  color: var(--text-normal);
+  font-size: 0.75rem;
+  text-decoration: none;
+  transition: var(--transition-duration-normal) color ease-in-out;
+  -webkit-text-stroke: var(--text-stroke-width) var(--link-footlink-color);
+}
+.footnote-link:hover,
+.footnote-ref:hover {
+  color: var(--link-footlink-color);
+}
+.markdown-preview-view h1 > .external-link,
+.markdown-preview-view h2 > .external-link,
+.markdown-preview-view h3 > .external-link,
+.markdown-preview-view h4 > .external-link,
+.markdown-preview-view h5 > .external-link,
+.markdown-preview-view h6 > .external-link {
+  border-top: 2px solid var(--color-shadowy-gold);
+  border-radius: 0.25rem;
+  color: var(--text-normal);
+  padding-top: 0.25rem;
+  text-decoration-line: none;
+  transition: var(--transition-duration-normal) color ease-in-out;
+  -webkit-text-stroke-width: var(--heading-stroke-width);
+  -webkit-text-stroke-color: var(--link-external-color);
+}
+.markdown-preview-view h1 > .external-link:hover,
+.markdown-preview-view h2 > .external-link:hover,
+.markdown-preview-view h3 > .external-link:hover,
+.markdown-preview-view h4 > .external-link:hover,
+.markdown-preview-view h5 > .external-link:hover,
+.markdown-preview-view h6 > .external-link:hover {
+  color: var(--link-external-color);
+}
+/* Preview — Horizontal Rules */
+.markdown-preview-view hr {
+  border: none;
+  background: linear-gradient(90deg, transparent, var(--color-shadowy-gold) 20%, var(--color-magic-gold), var(--color-shadowy-gold) 80%, transparent 100%);
+  height: 2px;
+}
+/* Preview — Tables */
+.markdown-preview-view table {
+  box-shadow: 0 -1px 1px var(--color-shadowy-gold),
+              0 -1px 2px var(--color-shadowy-gold),
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary),
+              0 -1px 8px var(--shadow-primary);
+  margin: 0 auto;
+}
+.markdown-preview-view table td,
+.markdown-preview-view table th {
+  border: none;
+  transition: var(--transition-duration-normal) box-shadow, text-shadow ease-in-out;
+}
+.markdown-preview-view table thead {
+  box-shadow: 0 -1px 1px var(--color-shadowy-gold),
+              0 -1px 2px var(--color-shadowy-gold),
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary),
+              0 -1px 8px var(--shadow-primary),
+              0 -1px 16px var(--shadow-primary);
+}
+.markdown-preview-view table th {
+  font-size: 1.1rem;
+  box-shadow: 0 -1px 1px var(--color-purple-3) inset,
+              0 -1px 2px var(--color-purple-3) inset,
+              0 -1px 4px var(--color-purple-3) inset,
+              0 -1px 8px var(--color-purple-3) inset;
+  text-shadow: 0 -1px 1px var(--color-purple-3),
+               0 -1px 2px var(--color-purple-3),
+               0 -1px 4px var(--color-purple-3);
+}
+.markdown-preview-view table th:hover {
+  box-shadow: 0 -1px 1px var(--color-purple-3) inset,
+              0 -1px 2px var(--color-purple-3) inset,
+              0 -1px 4px var(--color-purple-3) inset,
+              0 -1px 8px var(--color-purple-3) inset,
+              0 -1px 16px var(--color-purple-3) inset;
+  text-shadow: 0 -1px 1px var(--color-purple-3),
+               0 -1px 2px var(--color-purple-3),
+               0 -1px 4px var(--color-purple-3),
+               0 -1px 8px var(--color-purple-3);
+}
+.markdown-preview-view table tr:nth-child(even) td {
+  font-size: 1.1rem;
+  box-shadow: 0 -1px 1px var(--color-green) inset,
+              0 -1px 2px var(--color-green) inset,
+              0 -1px 4px var(--color-green) inset,
+              0 -1px 8px var(--color-green) inset;
+  text-shadow: 0 -1px 1px var(--color-green);
+}
+.markdown-preview-view table tr:nth-child(odd) td {
+  font-size: 1.1rem;
+  box-shadow: 0 -1px 1px var(--color-blue) inset,
+              0 -1px 2px var(--color-blue) inset,
+              0 -1px 4px var(--color-blue) inset,
+              0 -1px 8px var(--color-blue) inset;
+  text-shadow: 0 -1px 1px var(--color-blue);
+}
+.markdown-preview-view table tr td:hover {
+  box-shadow: 0 -1px 1px var(--color-teal) inset,
+              0 -1px 2px var(--color-teal) inset,
+              0 -1px 4px var(--color-teal) inset,
+              0 -1px 8px var(--color-teal) inset,
+              0 -1px 16px var(--color-teal) inset;
+  text-shadow: 0 -1px 1px var(--color-teal),
+               0 -1px 2px var(--color-teal);
+}
+/* Preview, Publish — File Tree */
+.tree-item,
+.nav-file-title,
+.nav-folder-title {
+  transition: var(--transition-duration-normal) border, border-radius, background, box-shadow ease-in-out;
+}
+.nav-files-container .tree-item:hover,
+.nav-files-container .nav-file-title:hover {
+  border-radius: 0.5rem 0.5rem;
+  border-left: 1px solid var(--color-shadowy-gold);
+  border-right: 1.5px solid var(--color-shadowy-gold);
+  box-shadow: 0 -1px 1px var(--color-green) inset,
+              0 -1px 2px var(--color-green) inset,
+              0 -1px 4px var(--color-green) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
+}
+.nav-files-container .nav-folder-title:hover {
+  border-radius: 0.5rem 0.5rem;
+  border-left: 1px solid var(--color-shadowy-gold);
+  border-right: 1.5px solid var(--color-shadowy-gold);
+  box-shadow: 0 -1px 1px var(--color-teal) inset,
+              0 -1px 2px var(--color-teal) inset,
+              0 -1px 4px var(--color-teal) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
+}
+.nav-files-container .tree-item.mod-active,
+.nav-files-container .nav-file-title.is-active {
+  border-radius: 0.5rem 0.5rem;
+  border-left: 1px solid var(--color-magic-gold);
+  border-right: 1.5px solid var(--color-magic-gold);
+  box-shadow: 0 -1px 1px var(--color-purple-3) inset,
+              0 -1px 2px var(--color-purple-3) inset,
+              0 -1px 4px var(--color-purple-3) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
+}
+/* Preview — Tag Pane */
+.tag-pane-tag {
+  transition: var(--transition-duration-normal) background, border, border-radius, box-shadow ease-in-out;
+}
+.tag-pane-tag:hover {
+  border-radius: 0.5rem 0.5rem;
+  border-left: 1px solid var(--color-shadowy-gold);
+  border-right: 1.5px solid var(--color-shadowy-gold);
+  box-shadow: 0 -1px 1px var(--color-blue) inset,
+              0 -1px 2px var(--color-blue) inset,
+              0 -1px 4px var(--color-blue) inset,
+              0 -1px 2px var(--shadow-primary),
+              0 -1px 4px var(--shadow-primary);
+}
+/* Publish */
+/* Publish — Header */
+.page-header {
+  display: none;
+}
+.publish-article-heading {
+  line-height: calc(var(--editor-font-size) * 3);
+}
+.markdown-preview-view h1.publish-article-heading::before {
+  top: calc(var(--editor-font-size) * -0.5);
+}
+.markdown-preview-view h2.publish-article-heading::before {
+  top: calc(var(--editor-font-size) / 4);
+}
+.site-footer {
+  text-align: right;
+}
+.site-footer:before {
+  content: 'Site Theme by Curio Heart';
+  display: block;
+  left: 0;
+}
+
+/* Ready for publishing?
+  Add in any snippets you need below here!
+  Remember, `@import` statements go at the top of the file!
+ */
