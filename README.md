@@ -34,15 +34,17 @@ I like to experiment with CSS to create something visually unique, so familiar s
 
 ### Installing
 
-For now, Wyrd is only available through this repository. To install in Obsidian, download `obsidian.css` and save it in your `.obsidian/themes` folder as `Wyrd.css`, then activate the theme within Obsidian's Theme Manager.
+Wyrd is available through the Obsidian Community Themes store! While in Obsidian, go to `Settings > Appearance`, find the `Themes` section, click the `Manage` button, and search for `Wyrd`!
 
-I've also submitted the theme to the Community Themes repo as well (hence the file's renaming); hopefully it'll be available directly in Obsidian soon! 💜
+If you would prefer a manual install, download `obsidian.css` and save it in your `.obsidian/themes` folder as `Wyrd.css`, then activate the theme within Obsidian's Theme Manager. (I'll set up releases soon!) 💜
 
 ### Some Notes
 
-It's worth pointing out that some styles present here can provide some measure of privacy for text while Previewing or in Publish.
+Because I like to experiment with CSS, many features I add to this theme may not fully carry over into other environments due to differences in rendering. As such, I've been doing my best to ensure that the text will continue to render in unique ways, regardless of whether these features work.
 
-Please don't mistake these for real privacy measures: they're anything but. CSS does not have the ability to provide real privacy measures for sensitive data.
+It's also worth pointing out that some styles present here can provide some measure of privacy for text while Previewing or in Publish.
+
+Please don't mistake these for real privacy measures: they're anything but. CSS _does not_ have the ability to provide real privacy measures for sensitive data.
 
 These features are purely intended for fun, and are marked below under [Features](#Features).
 
@@ -86,12 +88,12 @@ Useage: A bold-italic-bold-italic pattern around the text. Eg, `***___Redacted t
 
 In Preview mode, the text is rendered transparent with a near-black background, and makes it non-selectable. Selecting text around redactions will not select the redacted text itself, and the redacted text is excluded from being copied to the clipboard.
 
-There is presently no unique style for this in Edit mode.
+> There is presently no unique style for this in Edit mode. CodeMirror makes it challenging to style this _specific_ combination without affecting the [underlines](#Underline) and some other styles as well.
 
 ### Want to use the theme for Publish?
 
 1. Copy the theme file to your vault's root and rename it `publish.css`.
-2. Search for `/* Edit */` and delete everything below that line.
+2. Search for `/* Ready for publishing?` and delete everything that line and below.
 3. Copy any needed snippets into the file.
     - Be mindful of any rules that need to be at the top of the file! (This includes any `@import`s!)
     - The rest should be good to put at the bottom of the file.
@@ -118,12 +120,12 @@ Right now, the roadmap doesn't reflect any particular priority of items. Please 
   - Expressive
     - [x] Bold & Italic
       - `**_Bold & Italic_**` or `__*Bold & Italic*__`
-    - [x] Blur
+    - [x] [Blur](#Blur)
       - `~~==Blur==~~`
       - Slight blur in edit mode
       - Heavier blur in preview mode
       - Hover exposes blurred text
-    - [x] Pseudo-redaction
+    - [x] [Pseudo-redaction](#Pseudo-Redaction)
       - `***___Redacted text___***` or `___***Redacted text***___`
       - Text is transparent and non-selectable, with a suitable background for light and dark versions of the theme.
       - **NOTE: This does not provide security!**
@@ -177,9 +179,16 @@ Right now, the roadmap doesn't reflect any particular priority of items. Please 
 - Settings window
 - `@media screen` queries (if needed)
 
+### Publish Support
+
+- [x] Page header (hidden)
+- [x] File explorer
+
 ### Plugin Support
 
 #### Core Plugins
+
+- [x] Tag Pane
 
 #### Community Plugins
 
