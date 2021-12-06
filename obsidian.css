@@ -451,6 +451,39 @@ del:hover,
 .markdown-preview-view del:hover {
   color: var(--text-muted);
 }
+li del,
+li del .internal-link,
+li del .internal-link.is-unresolved,
+li del .external-link,
+.markdown-preview-view li del,
+.markdown-preview-view li del .internal-link,
+.markdown-preview-view li del .internal-link.is-unresolved,
+.markdown-preview-view li del .external-link {
+  color: var(--text-strike);
+  -webkit-text-stroke-color: transparent;
+  transition: var(--transition-duration-normal) color, -webkit-text-stroke-color ease-in-out;
+}
+.markdown-preview-view li del:hover .internal-link {
+  color: var(--text-muted);
+  -webkit-text-stroke-color: var(--link-internal-color);
+}
+.markdown-preview-view li del:hover .internal-link.is-unresolved {
+  color: var(--text-muted);
+  -webkit-text-stroke-color: var(--link-internal-unresolved-color);
+}
+.markdown-preview-view li del:hover .external-link {
+  color: var(--text-muted);
+  -webkit-text-stroke-color: var(--link-external-color);
+}
+.markdown-preview-view li del:hover .internal-link:hover {
+  color: var(--link-internal-color);
+}
+.markdown-preview-view li del:hover .internal-link.is-unresolved:hover {
+  color: var(--link-internal-unresolved-color);
+}
+.markdown-preview-view li del:hover .external-link:hover {
+  color: var(--link-external-color);
+}
 /* Preview — Text — Blur */
 del > mark,
 .markdown-preview-view del > mark {
@@ -1097,11 +1130,50 @@ input,
   color: var(--text-strike);
   text-decoration: none;
   text-shadow: 0 -1px 1px var(--text-faint);
-  transition: 0.3s color ease-in-out;
+  transition: var(--transition-duration-normal) color ease-in-out;
 }
 .cm-strikethrough:hover,
 .cm-s-obsidian .cm-strikethrough:hover {
   color: var(--text-muted);
+}
+/* Edit — Text — Strikethroughs in lists */
+.HyperMD-list-line:hover .cm-strikethrough,
+.HyperMD-list-line:hover .cm-strikethrough.cm-spell-error {
+  color: var(--text-muted);
+}
+/* Edit — Text — Strikethroughs with links */
+.HyperMD-list-line .cm-strikethrough.cm-formatting-link,
+.HyperMD-list-line .cm-strikethrough.cm-link,
+.HyperMD-list-line .cm-strikethrough.cm-string.cm-url,
+.HyperMD-list-line .cm-strikethrough.cm-hmd-internal-link {
+  color: var(--text-strike);
+  text-shadow: 0 -1px 1px var(--text-faint);
+  -webkit-text-stroke-color: var(--text-strike);
+  transition: var(--transition-duration-normal) color, -webkit-text-stroke-color, -webkit-text-fill-color ease-in-out;
+}
+.HyperMD-list-line:hover .cm-strikethrough.cm-formatting-link,
+.HyperMD-list-line:hover .cm-strikethrough.cm-link,
+.HyperMD-list-line:hover .cm-strikethrough.cm-string.cm-url,
+.HyperMD-list-line:hover .cm-strikethrough.cm-hmd-internal-link {
+  color: var(--text-muted);
+}
+.HyperMD-list-line:hover .cm-strikethrough.cm-hmd-internal-link {
+  -webkit-text-stroke-color: var(--link-internal-color);
+}
+.HyperMD-list-line:hover .cm-strikethrough.cm-link {
+  -webkit-text-stroke-color: var(--link-external-color);
+}
+.HyperMD-list-line:hover .cm-strikethrough.cm-string.cm-url {
+  -webkit-text-stroke-color: var(--link-url-string-color);
+}
+.HyperMD-list-line .cm-strikethrough.cm-hmd-internal-link:hover {
+  -webkit-text-fill-color: var(--link-internal-color);
+}
+.HyperMD-list-line .cm-strikethrough.cm-link:hover {
+  -webkit-text-fill-color: var(--link-external-color);
+}
+.HyperMD-list-line .cm-strikethrough.cm-string.cm-url:hover {
+  -webkit-text-fill-color: var(--link-url-string-color);
 }
 /* Edit — Text — Blur */
 .cm-strikethrough.cm-highlight,
@@ -1110,7 +1182,7 @@ input,
   color: var(--text-faint);
   filter: blur(0.05rem) drop-shadow(0 0 0);
   text-shadow: none;
-  transition: 0.3s color, filter ease-in-out;
+  transition: var(--transition-duration-normal) color, filter ease-in-out;
 }
 .cm-strikethrough.cm-highlight:hover,
 .cm-s-obsidian .cm-strikethrough.cm-highlight:hover {
