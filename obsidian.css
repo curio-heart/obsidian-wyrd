@@ -899,6 +899,7 @@ input,
   position: relative;
 }
 /* Edit — Active Line */
+.markdown-source-view.mod-cm6 .cm-active::before,
 .CodeMirror-activeline .CodeMirror-activeline-background::before {
   content: ' ';
   background: transparent;
@@ -917,6 +918,7 @@ input,
               0 1px 4px var(--color-green);
   animation: activeline-r1 45s linear 0s infinite;
 }
+.markdown-source-view.mod-cm6 .cm-active::after
 .CodeMirror-activeline .CodeMirror-activeline-background::after {
   content: ' ';
   background: transparent;
