@@ -1381,6 +1381,9 @@ span.cm-formatting-quote-6,
 .markdown-source-view.mod-cm6 .external-link {
   display: none;
 }
+.markdown-source-view.mod-cm6 .markdown-embed .external-link {
+  display: inline;
+}
 .cm-s-obsidian span.cm-url,
 .cm-s-obsidian span.cm-link,
 .cm-s-obsidian span.cm-footref,
@@ -1502,6 +1505,7 @@ span.cm-formatting-quote-6,
 .markdown-source-view.mod-cm6 .cm-comment,
 .cm-s-obsidian span.cm-comment {
   color: var(--text-muted);
+
 }
 
 /* 11 Animations */
