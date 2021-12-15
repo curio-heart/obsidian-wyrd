@@ -1498,6 +1498,11 @@ span.cm-formatting-quote-6,
 .HyperMD-table-row.HyperMD-table-row-0:hover .cm-hmd-table-sep {
   color: var(--color-purple-3);
 }
+/* Comments */
+.markdown-source-view .cm-comment {
+  background-color: var(--background-primary-alt);
+}
+
 /* 11 Animations */
 @keyframes activeline-r1 {
   from {
