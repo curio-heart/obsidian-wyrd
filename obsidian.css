@@ -1499,7 +1499,8 @@ span.cm-formatting-quote-6,
   color: var(--color-purple-3);
 }
 /* Comments */
-.markdown-source-view .cm-comment {
+.markdown-source-view.mod-cm6 .cm-comment,
+.cm-s-obsidian span.cm-comment {
   background-color: var(--background-primary-alt);
 }
 
