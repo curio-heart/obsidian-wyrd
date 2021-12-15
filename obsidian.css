@@ -1501,7 +1501,7 @@ span.cm-formatting-quote-6,
 /* Comments */
 .markdown-source-view.mod-cm6 .cm-comment,
 .cm-s-obsidian span.cm-comment {
-  background-color: var(--background-primary-alt);
+  color: var(--text-muted);
 }
 
 /* 11 Animations */
