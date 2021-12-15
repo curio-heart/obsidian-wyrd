@@ -1,5 +1,5 @@
 /**
- Wyrd v0.2.0
+ Wyrd v0.3.0
   A purple-hued, low-contrast, dual-mode theme
     created by Curio Heart for [Obsidian.md](https://obsidian.md/)
   
@@ -9,7 +9,10 @@
  */
 
 /**
-  1 Fonts
+  1 Front matter
+ */
+/**
+  1.1 Fonts
  */
 /* Preview: Neucha */
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
@@ -20,7 +23,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
 
 /**
-  2 Custom list counters
+  1.2 Custom list counters
  */
 @counter-style wyrd {
   system: cyclic;
@@ -29,10 +32,13 @@
 }
 
 /**
-  3 Core Defaults
+  2 Default Settings
+ */
+/**
+  2.1 Core Defaults
  */
 :root {
-  /* 3.1 Fonts */
+  /* 2.1.1 Fonts */
   --default-font: Neucha, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
   --font-heading: var(--default-font);
   --mermaid-font: var(--default-font);
@@ -42,7 +48,7 @@
   /* Only active within Publish spaces; body styling overrides this within Obsidian */
   --editor-font-size: 16px;
 
-  /* 3.2 Color Palette */
+  /* 2.1.2 Color Palette */
   --color-blacker: hsl(270, 10%, 5%);
   --color-blacker-hsl: 270, 10%, 5%;
   --color-black: hsl(270, 10%, 10%);
@@ -93,7 +99,7 @@
   --color-bold: hsl(12, 65%, 62%);
   --color-italic: hsl(346, 64%, 57%);
 
-  /* 3.3 Various Settings */
+  /* 2.1.3 Various Settings */
   --text-stroke-width: 0.2px;
   --link-footlink-stroke-width: 0.1px;
   --heading-stroke-width: 0.01px;
@@ -109,7 +115,10 @@
 }
 
 /**
-  4 Dark Mode defaults
+  2.2 Theme Modes
+ */
+/**
+  2.2.1 Dark Mode defaults
  */
 .theme-dark {
   --background-primary: var(--color-grey-03);
@@ -127,7 +136,7 @@
 }
 
 /**
-  5 Light Mode defaults
+  2.2.2 Light Mode defaults
 */
 .theme-light {
   --background-primary: var(--color-grey-10);
@@ -145,7 +154,7 @@
 }
 
 /**
-  6 Mixed defaults
+  2.2.3 Mixed defaults
  */
 .theme-dark,
 .theme-light {
@@ -176,13 +185,13 @@
   --scrollbar-thumb-bg: hsla(var(--scrollbar-hsl), 0.1);
   --highlight-mix-blend-mode: lighten;
 }
-/* 7 Publish */
+/* 3 Publish */
 .published-container {
   font-size: var(--editor-font-size);
   position: relative;
 }
-/* 8 Preview */
-/* Preview — Headings */
+/* 4 Preview */
+/* 4.1 Preview — Headings */
 .markdown-preview-view h1,
 .markdown-preview-view h2,
 .markdown-preview-view h3,
@@ -363,20 +372,20 @@
   top: calc(var(--editor-font-size) / 9);
   z-index: -1;
 }
-/* Preview — Text */
-/* Preview — Text — Italic */
+/* 4.2 Preview — Text */
+/* 4.2.1 Preview — Text — Italic */
 em,
 .markdown-preview-view em {
   -webkit-text-stroke-color: var(--color-italic);
   -webkit-text-stroke-width: 0.5px;
 }
-/* Preview — Text — Bold */
+/* 4.2.2 Preview — Text — Bold */
 strong,
 .markdown-preview-view strong {
   -webkit-text-fill-color: var(--color-bold);
   -webkit-text-stroke-width: 0.05px;
 }
-/* Preview — Text — Underline */
+/* 4.2.3 Preview — Text — Underline */
 em > em,
 .markdown-preview-view em > em {
   font-style: normal;
@@ -390,20 +399,20 @@ strong > strong,
   -webkit-text-fill-color: var(--text-normal);
   -webkit-text-stroke-width: 0;
 }
-/* Preview — Text — Bold + Italic */
+/* 4.2.4 Preview — Text — Bold + Italic */
 em > strong,
 strong > em,
 .markdown-preview-view em > strong,
 .markdown-preview-view strong > em {
   -webkit-text-stroke-width: 0.05px;
 }
-/* Preview — Text — Italic + Underline */
+/* 4.2.5 Preview — Text — Italic + Underline */
 em > strong > strong,
 .markdown-preview-view em > strong > strong {
   text-decoration: underline calc(var(--editor-font-size) / 8) var(--color-pale-purple);
   -webkit-text-stroke-width: 0.5px;
 }
-/* Preview — Text — Bold + Underline */
+/* 4.2.6 Preview — Text — Bold + Underline */
 strong > em > em,
 .markdown-preview-view strong > em > em {
   font-weight: bold;
@@ -412,7 +421,7 @@ strong > em > em,
   -webkit-text-stroke-color: var(--text-normal);
   -webkit-text-stroke-width: 0.05px;
 }
-/* Preview — Text — Visual Redaction */
+/* 4.2.7 Preview — Text — Visual Redaction */
 strong > em > strong > em,
 .markdown-preview-view strong > em > strong > em {
   background-color: hsl(var(--color-blacker-hsl));
@@ -423,7 +432,7 @@ strong > em > strong > em,
   -webkit-text-stroke-color: transparent;
 }
 /* em em strong strong {} */
-/* Preview — Text — Highlight */
+/* 4.2.8 Preview — Text — Highlight */
 mark,
 .markdown-preview-view mark {
   color: var(--text-normal);
@@ -440,7 +449,7 @@ mark:hover,
   filter: drop-shadow(0 -1px 0.15rem var(--color-cyan-desat));
   text-shadow: 0 -1px 1.5px var(--shadow-primary);
 }
-/* Preview — Text — Strikethrough */
+/* 4.2.9 Preview — Text — Strikethrough */
 del,
 .markdown-preview-view del {
   color: var(--text-strike);
@@ -484,7 +493,7 @@ li del .external-link,
 .markdown-preview-view li del:hover .external-link:hover {
   color: var(--link-external-color);
 }
-/* Preview — Text — Blur */
+/* 4.2.10 Preview — Text — Blur */
 del > mark,
 .markdown-preview-view del > mark {
   color: var(--text-faint);
@@ -515,18 +524,20 @@ h5 > del > mark:hover, .markdown-preview-view h5 > del > mark:hover,
 h6 > del > mark:hover, .markdown-preview-view h6 > del > mark:hover {
   filter: blur(0) drop-shadow(0 0 0.5rem);
 }
-/* Preview — Text — Blockquotes */
+/* 4.2.11 Preview — Text — Blockquotes */
 blockquote,
 .markdown-preview-view blockquote {
+  background-color: var(--background-secondary);
   border: 0;
   border-radius: 0.5rem;
   border-left: 5px solid var(--color-purple-3);
   border-right: 1px solid var(--color-purple-3);
   box-shadow: 0 -1px 1px var(--color-magic-gold) inset,
               0 -1px 2px var(--color-magic-gold) inset;
+  color: var(--text-muted);
   margin-inline-start: 5px;
   margin-inline-end: 5px;
-  transition: var(--transition-duration-instant) box-shadow ease-in-out;
+  transition: var(--transition-duration-instant) box-shadow, color ease-in-out;
 }
 blockquote:hover,
 .markdown-preview-view blockquote:hover {
@@ -542,6 +553,7 @@ blockquote:hover,
               0 -1px 2px var(--color-shadowy-gold),
               0 -1px 4px var(--color-shadowy-gold),
               0 -1px 8px var(--color-shadowy-gold);
+  color: var(--text-normal);
 }
 blockquote blockquote,
 .markdown-preview-view blockquote blockquote {
@@ -563,7 +575,7 @@ blockquote blockquote blockquote blockquote blockquote blockquote,
 .markdown-preview-view blockquote blockquote blockquote blockquote blockquote blockquote {
   border-color: var(--color-cyan-desat);
 }
-/* Preview — Lists */
+/* 4.3 Preview — Lists */
 ul, ol {
   padding-inline-start: 15px;
 }
@@ -576,7 +588,7 @@ ol li p {
   position: relative;
   text-align: right;
 }
-/* Preview — Lists — Unordered */
+/* 4.3.1 Preview — Lists — Unordered */
 ul,
 ul ul,
 ul ul ul,
@@ -616,7 +628,7 @@ ul ul ul ul ul li::marker {
 ul ul ul ul ul ul li::marker {
   color: var(--color-cyan-desat);
 }
-/* Preview — Lists — Ordered */
+/* 4.3.2 Preview — Lists — Ordered */
 ol li::marker {
   color: var(--color-purple-3);
 }
@@ -635,7 +647,9 @@ ol ol ol ol ol li::marker {
 ol ol ol ol ol ol li::marker {
   color: var(--color-cyan-desat);
 }
-/* Preview — Links */
+/* 4.3.3 Preview — Task Lists */
+/* 4.4 Preview — Links */
+/* 4.4.1 Preview — Links — Internal */
 .markdown-preview-view .internal-link {
   color: var(--color-normal);
   border-bottom: 1px solid var(--color-magic-gold);
@@ -647,6 +661,7 @@ ol ol ol ol ol ol li::marker {
 .markdown-preview-view .internal-link:hover {
   color: var(--link-internal-color);
 }
+/* 4.4.2 Preview — Links — Internal, unresolved */
 .markdown-preview-view .internal-link.is-unresolved {
   color: var(--text-muted);
   opacity: 1;
@@ -655,10 +670,13 @@ ol ol ol ol ol ol li::marker {
 .markdown-preview-view .internal-link.is-unresolved:hover {
   color: var(--link-internal-unresolved-color);
 }
+/* 4.4.3 Preview — Links — External */
 .external-link {
+  background-image: none;
   border-top: 1px solid var(--color-shadowy-gold);
   border-radius: 0.25rem;
   color: var(--text-normal);
+  padding-right: 0;
   -webkit-text-stroke: var(--text-stroke-width) var(--link-external-color);
   text-decoration-line: none;
   transition: var(--transition-duration-normal) color ease-in-out;
@@ -666,6 +684,7 @@ ol ol ol ol ol ol li::marker {
 .external-link:hover {
   color: var(--link-external-color);
 }
+/* 4.4.4 Preview — Links — Footlinks */
 .footnote-link,
 .footnote-ref {
   border-radius: 0.25rem;
@@ -680,6 +699,7 @@ ol ol ol ol ol ol li::marker {
 .footnote-ref:hover {
   color: var(--link-footlink-color);
 }
+/* 4.4.5 Preview — Links — Links in headers */
 .markdown-preview-view h1 > .external-link,
 .markdown-preview-view h2 > .external-link,
 .markdown-preview-view h3 > .external-link,
@@ -879,6 +899,7 @@ input,
   position: relative;
 }
 /* Edit — Active Line */
+.markdown-source-view.mod-cm6 .cm-active::before,
 .CodeMirror-activeline .CodeMirror-activeline-background::before {
   content: ' ';
   background: transparent;
@@ -897,6 +918,7 @@ input,
               0 1px 4px var(--color-green);
   animation: activeline-r1 45s linear 0s infinite;
 }
+.markdown-source-view.mod-cm6 .cm-active::after
 .CodeMirror-activeline .CodeMirror-activeline-background::after {
   content: ' ';
   background: transparent;
@@ -1295,6 +1317,7 @@ span.cm-formatting-quote-6,
   border-right: 1px solid var(--color-cyan-desat);
 }
 /* Edit — Lists */
+.markdown-source-view .HyperMD-list-line,
 .CodeMirror .HyperMD-list-line {
   border-radius: 0.25rem;
   box-shadow: 1px solid var(--color-shadowy-gold);
@@ -1306,25 +1329,58 @@ span.cm-formatting-quote-6,
               0 -1px 2px var(--shadow-primary),
               0 -1px 4px var(--shadow-primary);
 }
+.list-bullet {
+  color: transparent;
+}
+.HyperMD-list-line-1 .list-bullet::before,
+.HyperMD-list-line-2 .list-bullet::before,
+.HyperMD-list-line-3 .list-bullet::before,
+.HyperMD-list-line-4 .list-bullet::before,
+.HyperMD-list-line-5 .list-bullet::before,
+.HyperMD-list-line-6 .list-bullet::before {
+  content: '\2192';
+}
+.HyperMD-list-line-1 .list-bullet::before,
 .HyperMD-list-line.HyperMD-list-line-1 .cm-formatting-list {
   color: var(--color-purple-3);
 }
+.HyperMD-list-line-2 .list-bullet::before,
 .HyperMD-list-line.HyperMD-list-line-2 .cm-formatting-list {
   color: var(--color-hot-pink);
 }
+.HyperMD-list-line-3 .list-bullet::before,
 .HyperMD-list-line.HyperMD-list-line-3 .cm-formatting-list {
   color: var(--color-shadowy-gold);
 }
+.HyperMD-list-line-4 .list-bullet::before,
 .HyperMD-list-line.HyperMD-list-line-4 .cm-formatting-list {
   color: var(--color-green);
 }
+.HyperMD-list-line-5 .list-bullet::before,
 .HyperMD-list-line.HyperMD-list-line-5 .cm-formatting-list {
   color: var(--color-teal);
 }
+.HyperMD-list-line-6 .list-bullet::before,
 .HyperMD-list-line.HyperMD-list-line-6 .cm-formatting-list {
   color: var(--color-cyan-desat);
 }
 /* Edit — Links */
+.markdown-source-view.mod-cm6.is-live-preview .cm-line .cm-hmd-internal-link .cm-underline,
+.markdown-source-view.mod-cm6.is-live-preview .cm-line .cm-link .cm-underline,
+.markdown-source-view.mod-cm6.is-live-preview .cm-line .cm-url {
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) .cm-hmd-internal-link .cm-underline {
+  border-bottom: 1px solid var(--color-magic-gold);
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) .cm-link .cm-underline,
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) .cm-url {
+  border-top: 1px solid var(--color-shadowy-gold);
+}
+.markdown-source-view.mod-cm6 .external-link {
+  display: none;
+}
 .cm-s-obsidian span.cm-url,
 .cm-s-obsidian span.cm-link,
 .cm-s-obsidian span.cm-footref,
@@ -1398,10 +1454,10 @@ span.cm-formatting-quote-6,
 }
 /* Edit — Tables */
 .HyperMD-table-row {
-  transition: 0.25s text-shadow ease-in-out;
+  transition: var(--transition-duration-normal) text-shadow ease-in-out;
 }
 .HyperMD-table-row .cm-hmd-table-sep {
-  transition: 0.25s color ease-in-out;
+  transition: var(--transition-duration-normal) color ease-in-out;
 }
 .HyperMD-table-row:nth-child(even) {
   text-shadow: 0 -1px 1px var(--color-green);
@@ -1442,6 +1498,12 @@ span.cm-formatting-quote-6,
 .HyperMD-table-row.HyperMD-table-row-0:hover .cm-hmd-table-sep {
   color: var(--color-purple-3);
 }
+/* Comments */
+.markdown-source-view.mod-cm6 .cm-comment,
+.cm-s-obsidian span.cm-comment {
+  color: var(--text-muted);
+}
+
 /* 11 Animations */
 @keyframes activeline-r1 {
   from {
