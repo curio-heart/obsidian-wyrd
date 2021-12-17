@@ -1523,18 +1523,39 @@ span.cm-formatting-quote-6,
   background: var(--text-strike);
 }
 /* Edit — Links */
+.markdown-source-view.mod-cm6.is-live-preview .cm-line .is-unresolved {
+  opacity: 1;
+}
 .markdown-source-view.mod-cm6.is-live-preview .cm-line .cm-hmd-internal-link .cm-underline,
 .markdown-source-view.mod-cm6.is-live-preview .cm-line .cm-link .cm-underline,
 .markdown-source-view.mod-cm6.is-live-preview .cm-line .cm-url {
   border-radius: 0.25rem;
   text-decoration: none;
 }
-.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) .cm-hmd-internal-link .cm-underline {
-  border-bottom: 1px solid var(--color-magic-gold);
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) > .is-unresolved > .cm-hmd-internal-link .cm-underline,
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) > .cm-hmd-internal-link .cm-underline {
+  border-bottom: 1px solid var(--link-internal-color);
+}
+.markdown-source-view.mod-cm6.is-live-preview .cm-line.cm-active > .is-unresolved > .cm-hmd-internal-link .cm-underline {
+  color: var(--text-muted);
+  -webkit-text-stroke-color: var(--link-internal-unresolved-color);
+}
+.markdown-source-view.mod-cm6 .cm-line:not(.cm-active) > .is-unresolved > .cm-hmd-internal-link .cm-underline,
+.markdown-source-view.mod-cm6 .cm-line.cm-active > .is-unresolved > .cm-hmd-internal-link .cm-underline,
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) > .is-unresolved > .cm-hmd-internal-link .cm-underline,
+.markdown-source-view.mod-cm6.is-live-preview .cm-line.cm-active > .is-unresolved > .cm-comment.cm-hmd-internal-link .cm-underline {
+  color: var(--text-faint);
+  transition: var(--transition-duration-normal) color ease-in-out;
+}
+.markdown-source-view.mod-cm6 .cm-line:not(.cm-active) > .is-unresolved > .cm-hmd-internal-link .cm-underline:hover,
+.markdown-source-view.mod-cm6 .cm-line.cm-active > .is-unresolved > .cm-hmd-internal-link .cm-underline:hover,
+.markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) > .is-unresolved > .cm-hmd-internal-link .cm-underline:hover,
+.markdown-source-view.mod-cm6.is-live-preview .cm-line.cm-active > .is-unresolved > .cm-comment.cm-hmd-internal-link .cm-underline:hover {
+  color: var(--link-internal-unresolved-color);
 }
 .markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) .cm-link .cm-underline,
 .markdown-source-view.mod-cm6.is-live-preview .cm-line:not(.cm-active) .cm-url {
-  border-top: 1px solid var(--color-shadowy-gold);
+  border-top: 1px solid var(--link-internal-unresolved-color);
 }
 .markdown-source-view.mod-cm6 .external-link {
   display: none;
@@ -1550,7 +1571,7 @@ span.cm-formatting-quote-6,
 .cm-s-obsidian span.cm-formatting-link {
   color: var(--text-normal);
   text-decoration: none;
-  transition: 0.25s color ease-in-out;
+  transition: var(--transition-duration-normal) color ease-in-out;
 }
 .cm-s-obsidian span.cm-url:hover,
 .cm-s-obsidian span.cm-link:hover,
@@ -1663,7 +1684,6 @@ span.cm-formatting-quote-6,
 .markdown-source-view.mod-cm6 .cm-comment,
 .cm-s-obsidian span.cm-comment {
   color: var(--text-muted);
-
 }
 
 /* 11 Animations */
