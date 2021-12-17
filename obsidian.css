@@ -922,6 +922,74 @@ ol ol ol ol ol ol li::marker {
   go at the top of the file!
  */
 
+/* Print */
+@media print {
+  :root {
+    --default-font: 'Kalam';
+  }
+  .markdown-preview-view h1:before,
+  .markdown-preview-view h2:before,
+  .markdown-preview-view h3:before,
+  .markdown-preview-view h4:before,
+  .markdown-preview-view h5:before,
+  .markdown-preview-view h6:before {
+    background: none;
+    border-width: 1px;
+    border-style: solid;
+    border-right: 0;
+  }
+  .markdown-preview-view h1 {
+    color: var(--color-purple-3);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+  }
+  .markdown-preview-view h1:before {
+    border-color: var(--color-purple-3);
+  }
+  .markdown-preview-view h2 {
+    color: var(--color-hot-pink);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+  }
+  .markdown-preview-view h2:before {
+    border-color: var(--color-hot-pink);
+  }
+  .markdown-preview-view h3 {
+    color: var(--color-shadowy-gold);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+  }
+  .markdown-preview-view h3:before {
+    border-color: var(--color-shadowy-gold);
+  }
+  .markdown-preview-view h4 {
+    color: var(--color-green);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+  }
+  .markdown-preview-view h4:before {
+    border-color: var(--color-green);
+  }
+  .markdown-preview-view h5 {
+    color: var(--color-teal);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+  }
+  .markdown-preview-view h5:before {
+    border-color: var(--color-teal);
+  }
+  .markdown-preview-view h6 {
+    color: var(--color-purple-3);
+    -webkit-text-fill-color: unset;
+    -webkit-text-stroke: unset;
+  }
+  .markdown-preview-view h6:before {
+    border-color: var(--color-cyan-desat);
+  }
+  .markdown-preview-view blockquote {
+    color: var(--color-grey-00);
+  }
+}
 /* 9 Settings */
 button,
 select,
