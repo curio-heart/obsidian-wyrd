@@ -132,7 +132,7 @@
   --text-on-accent: var(--text-normal);
   --scrollbar-hsl: var(--color-deep-purple-hsl);
   --text-strike: var(--color-grey-02);
-  --shadow-primary: var(--color-grey-00);
+  --shadow-primary: var(--color-grey-01);
 }
 
 /**
@@ -150,7 +150,7 @@
   --text-on-accent: var(--text-faint);
   --scrollbar-hsl: var(--color-pale-purple-hsl);
   --text-strike: var(--color-grey-08);
-  --shadow-primary: var(--color-grey-06);
+  --shadow-primary: var(--color-grey-05);
 }
 
 /**
