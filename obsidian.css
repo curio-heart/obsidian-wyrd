@@ -1685,6 +1685,38 @@ span.cm-formatting-quote-6,
 .cm-s-obsidian span.cm-comment {
   color: var(--text-muted);
 }
+/* Graph */
+.graph-view.color-line-highlight {
+  color: var(--color-purple-3);
+}
+.graph-view.color-fill-highlight {
+  color: var(--color-purple-1);
+}
+.graph-view.color-circle {
+  color: var(--color-magic-gold);
+}
+.graph-view.color-fill-unresolved {
+  color: var(--shadow-primary);
+  opacity: 0.7;
+}
+.graph-view.color-fill {
+  color: var(--color-magic-gold);
+}
+.graph-view.color-fill-focused {
+  color: var(--color-hot-pink);
+}
+.graph-view.color-arrow {
+  color: var(--color-purple-3);
+  opacity: 0.8;
+}
+.theme-dark .graph-view.color-fill-tag,
+.theme-light .graph-view.color-fill-tag {
+  color: var(--color-green);
+}
+.theme-dark .graph-view.color-fill-attachment,
+.theme-light .graph-view.color-fill-attachment {
+  color: var(--color-teal);
+}
 
 /* 11 Animations */
 @keyframes activeline-r1 {
