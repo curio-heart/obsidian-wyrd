@@ -841,8 +841,8 @@ ol ol ol ol ol ol li::marker {
               0 -1px 2px var(--color-green) inset,
               0 -1px 4px var(--color-green) inset;
 }
-.nav-folder:not(.mod-root):not(.is-collapsed) .nav-folder-title {
-  /* restyle slightly for expanded folders */
+.nav-folder:not(.mod-root):not(.is-collapsed) > .nav-folder-title {
+  /* restyle for expanded folders */
   border-radius: 0.5rem;
   box-shadow: 0 -1px 1px var(--color-cyan) inset,
               0 -1px 2px var(--color-teal) inset,
