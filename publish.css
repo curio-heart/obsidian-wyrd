@@ -112,6 +112,7 @@
   --transition-duration-instant: 0.05s;
   --transition-duration-fast: 0.15s;
   --transition-duration-normal: 0.25s;
+  --transition-duration-slow: 1s;
 }
 
 /**
@@ -132,7 +133,7 @@
   --text-on-accent: var(--text-normal);
   --scrollbar-hsl: var(--color-deep-purple-hsl);
   --text-strike: var(--color-grey-02);
-  --shadow-primary: var(--color-grey-00);
+  --shadow-primary: var(--color-grey-01);
 }
 
 /**
@@ -150,7 +151,7 @@
   --text-on-accent: var(--text-faint);
   --scrollbar-hsl: var(--color-pale-purple-hsl);
   --text-strike: var(--color-grey-08);
-  --shadow-primary: var(--color-grey-06);
+  --shadow-primary: var(--color-grey-05);
 }
 
 /**
@@ -734,7 +735,6 @@ ol ol ol ol ol ol li::marker {
   color: var(--link-external-color);
 }
 /* Preview — Horizontal Rules */
-.markdown-source-view.mod-cm6 .hr hr,
 .markdown-preview-view hr {
   border: none;
   background: linear-gradient(90deg, transparent, var(--color-shadowy-gold) 20%, var(--color-magic-gold), var(--color-shadowy-gold) 80%, transparent 100%);
@@ -809,69 +809,106 @@ ol ol ol ol ol ol li::marker {
                0 -1px 2px var(--color-teal);
 }
 /* Preview, Publish — File Tree */
+.nav-folder-title[data-path="/"] .nav-folder-title-content {
+  color: var(--color-magic-gold);
+}
 .tree-item,
 .nav-file-title,
 .nav-folder-title {
-  transition: var(--transition-duration-normal) border, border-radius, background, box-shadow ease-in-out;
+  border: none;
+  border-left: 2px solid var(--color-shadowy-gold);
+  border-right: 2.5px solid var(--color-shadowy-gold);
+  border-radius: 0;
+  transition: var(--transition-duration-normal) border-radius, background, box-shadow ease-in-out;
 }
-.nav-files-container .tree-item:hover,
-.nav-files-container .nav-file-title:hover {
-  border-radius: 0.5rem 0.5rem;
-  border-left: 1px solid var(--color-shadowy-gold);
-  border-right: 1.5px solid var(--color-shadowy-gold);
+.tree-item:hover,
+.nav-file-title:hover,
+.nav-folder-title:hover {
+  border-radius: 0.5rem;
+}
+.nav-folder-children > div:first-child:not() {
+  /* removes the small gap between folders and the files within them */
+  display: none;
+}
+.tree-item:hover {
+  box-shadow: 0 -1px 1px var(--color-hot-pink) inset,
+              0 -1px 2px var(--color-hot-pink) inset,
+              0 -1px 4px var(--color-hot-pink) inset;
+}
+.nav-file-title:hover {
   box-shadow: 0 -1px 1px var(--color-green) inset,
               0 -1px 2px var(--color-green) inset,
-              0 -1px 4px var(--color-green) inset,
-              0 -1px 2px var(--shadow-primary),
-              0 -1px 4px var(--shadow-primary);
+              0 -1px 4px var(--color-green) inset;
 }
-.nav-files-container .nav-folder-title:hover {
-  border-radius: 0.5rem 0.5rem;
-  border-left: 1px solid var(--color-shadowy-gold);
-  border-right: 1.5px solid var(--color-shadowy-gold);
+.nav-folder:not(.mod-root):not(.is-collapsed) > .nav-folder-title {
+  /* restyle for expanded folders */
+  border-radius: 0.5rem;
+  box-shadow: 0 -1px 1px var(--color-cyan) inset,
+              0 -1px 2px var(--color-teal) inset,
+              0 -1px 4px var(--color-teal) inset;
+  transition: var(--transition-duration-normal) border-radius ease-in-out;
+}
+.nav-folder:not(.mod-root):not(.is-collapsed) .nav-folder-title:hover {
+  border-radius: 0.75rem;
+}
+.nav-folder.is-collapsed .nav-folder-title:hover {
   box-shadow: 0 -1px 1px var(--color-teal) inset,
               0 -1px 2px var(--color-teal) inset,
-              0 -1px 4px var(--color-teal) inset,
-              0 -1px 2px var(--shadow-primary),
-              0 -1px 4px var(--shadow-primary);
+              0 -1px 4px var(--color-teal) inset;
 }
-.nav-files-container .tree-item.mod-active,
-.nav-files-container .nav-file-title.is-active {
-  border-radius: 0.5rem 0.5rem;
-  border-left: 1px solid var(--color-magic-gold);
-  border-right: 1.5px solid var(--color-magic-gold);
+.tree-item.mod-active,
+.nav-file-title.is-active {
+  border-left: 2px solid var(--color-magic-gold);
+  border-radius: 0.5rem;
+  border-right: 2.5px solid var(--color-magic-gold);
   box-shadow: 0 -1px 1px var(--color-purple-3) inset,
               0 -1px 2px var(--color-purple-3) inset,
-              0 -1px 4px var(--color-purple-3) inset,
-              0 -1px 2px var(--shadow-primary),
-              0 -1px 4px var(--shadow-primary);
+              0 -1px 4px var(--color-purple-3) inset;
+  transition: var(--transition-duration-normal) border-radius ease-in-out;
+}
+.tree-item.mod-active:hover,
+.nav-file-title.is-active:hover {
+  border-radius: 0.75rem;
 }
 /* Preview — Tag Pane */
 .tag-pane-tag {
   transition: var(--transition-duration-normal) background, border, border-radius, box-shadow ease-in-out;
 }
 .tag-pane-tag:hover {
-  border-radius: 0.5rem 0.5rem;
+  border-radius: 0.5rem;
   border-left: 1px solid var(--color-shadowy-gold);
   border-right: 1.5px solid var(--color-shadowy-gold);
   box-shadow: 0 -1px 1px var(--color-blue) inset,
               0 -1px 2px var(--color-blue) inset,
-              0 -1px 4px var(--color-blue) inset,
-              0 -1px 2px var(--shadow-primary),
-              0 -1px 4px var(--shadow-primary);
+              0 -1px 4px var(--color-blue) inset;
 }
 /* Preview, Publish — Embeds */
 .markdown-embed {
   border-top: none;
   border-bottom: none;
 }
+/* bare embeds */
+.markdown-preview-view.bare-embeds .markdown-embed-content {
+  max-height: unset;
+}
+.markdown-preview-view.bare-embeds .markdown-embed-title {
+  display: none;
+}
+.markdown-preview-view.bare-embeds .markdown-embed-content h1::before {
+  left: calc(var(--editor-font-size) * -1);
+}
+.markdown-preview-view.bare-embeds .markdown-embed .markdown-preview-view {
+  overflow: hidden;
+}
+/* keep titles in bare embeds */
+.markdown-preview-view.bare-embeds.keep-embed-titles .markdown-embed-title {
+  display: block;
+}
+/* hide embeds in embeds */
+.markdown-preview-view.hide-secondary-embeds .markdown-embed .markdown-embed {
+  display: none;
+}
 /* Preview, Publish — Popovers */
-/* .popover {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  overflow: visible;
-} */
 .popover,
 .popover.hover-popover {
   background-color: var(--background-secondary);
@@ -915,8 +952,3 @@ ol ol ol ol ol ol li::marker {
   display: block;
   left: 0;
 }
-
-/* Ready for publishing?
-  Add in any snippets you need below here!
-  Remember, `@import` statements go at the top of the file!
- */
