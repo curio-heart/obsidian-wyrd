@@ -108,6 +108,7 @@ Right now, the roadmap doesn't reflect any particular priority of items. Please 
 
 ### Note Content
 
+- [x] Live Preview (mostly)
 - Text styling
   - Basic
     - [x] `**Bold**` styling
@@ -146,8 +147,8 @@ Right now, the roadmap doesn't reflect any particular priority of items. Please 
 - Lists
   - [x] Unordered
   - [x] Ordered
-  - [ ] Task lists
-    - [ ] Alternate styles for markers
+  - [/] Task lists
+    - [/] Alternate styles for markers (partial—Live Preview only)
 - Link styling
   - [x] Internal link
   - [x] Unresolved internal link
@@ -161,7 +162,7 @@ Right now, the roadmap doesn't reflect any particular priority of items. Please 
   - [ ] Inline code
   - [ ] Syntax highlighting
 - Embeds
-  - [ ] Notes
+  - [/] Notes (partial—no default style yet)
   - [ ] Images
     - Cap size?
   - [ ] PDFs
@@ -170,25 +171,33 @@ Right now, the roadmap doesn't reflect any particular priority of items. Please 
 
 - Sidebars
   - [ ] Leaf containers
+  - [x] Leaf resize bars
+  - [x] Ribbon menu
 - Titles
   - [ ] App title bar
   - [ ] Note title bars
-- Panes
-- Status bar
-- Graph view
-- Settings window
+- [ ] Panes
+- [ ] Status bar
+- [x] Graph view
+- [ ] Settings window
 - `@media screen` queries (if needed)
+- [ ] Mobile support
 
 ### Publish Support
 
 - [x] Page header (hidden)
 - [x] File explorer
 
+### Print Support
+
+- [x] Basic print support
+
 ### Plugin Support
 
 #### Core Plugins
 
 - [x] Tag Pane
+- [x] File Explorer
 
 #### Community Plugins
 
@@ -197,5 +206,8 @@ Right now, the roadmap doesn't reflect any particular priority of items. Please 
 
 ## Known Issues
 
-- Typing while hovering over a list item in Edit Mode results in a constantly flickering transition
 - Links in headings have no transition despite having one styled
+- Live Preview headings aren't aligned with their backgrounds
+- Code styles have not been changed to match the theme
+- Plain embeds have not been restyled for Live Preview
+- Active line indicator needs to be moved outside of the text
