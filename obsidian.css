@@ -1060,13 +1060,59 @@ input,
 .cm-hmd-frontmatter.cm-overlay.cm-spell-error {
   background-image: none;
 }
+/* Edit — Gutters */
+.markdown-source-view.mod-cm6 .cm-gutters {
+  background-color: transparent !important;
+}
+/* Edit — Cursors */
+.cm-s-obsidian .cm-cursor,
+.cm-s-obsidian .cm-dropCursor {
+  border-left-color: var(--color-magic-gold);
+  box-shadow: 0 0 2px var(--text-normal);
+}
+.cm-s-obsidian .cm-cursor-primary {
+  box-shadow: 0 0 2px var(--color-teal);
+}
 /* Edit — Line */
 .cm-s-obsidian .cm-line,
 .cm-s-obsidian .CodeMirror-line {
   position: relative;
 }
 /* Edit — Active Line */
-.markdown-source-view.mod-cm6 .cm-active::before,
+.markdown-source-view.mod-cm6 .cm-cursor::before,
+.markdown-source-view.mod-cm6 .cm-cursor::after {
+  content: ' ';
+  background: transparent;
+  display: block;
+  height: calc(var(--editor-font-size) * 0.75);
+  left: calc(var(--editor-font-size) * 0.8);
+  opacity: 0.25;
+  position: absolute;
+  top: calc(var(--editor-font-size) * 0.3);
+  visibility: visible;
+  width: calc(var(--editor-font-size) * 0.75);
+}
+.markdown-source-view.mod-cm6 .cm-cursor::before {
+  box-shadow: 0 1px 1px var(--color-magic-gold) inset,
+              0 1px 2px var(--color-magic-gold) inset,
+              0 1px 4px var(--color-magic-gold) inset,
+              0 1px 8px var(--color-magic-gold) inset,
+              0 1px 1px var(--color-green),
+              0 1px 2px var(--color-green),
+              0 1px 4px var(--color-green);
+  animation: activeline-r1 45s linear 0s infinite;
+}
+.markdown-source-view.mod-cm6 .cm-cursor::after {
+  transform: rotate(30deg);
+  box-shadow: 0 1px 1px var(--color-teal) inset,
+              0 1px 2px var(--color-teal) inset,
+              0 1px 4px var(--color-teal) inset,
+              0 1px 8px var(--color-teal) inset,
+              0 1px 1px var(--color-shadowy-gold),
+              0 1px 2px var(--color-shadowy-gold),
+              0 1px 4px var(--color-shadowy-gold);
+  animation: activeline-r2 60s linear 0s infinite;
+}
 .CodeMirror-activeline .CodeMirror-activeline-background::before {
   content: ' ';
   background: transparent;
@@ -1085,7 +1131,6 @@ input,
               0 1px 4px var(--color-green);
   animation: activeline-r1 45s linear 0s infinite;
 }
-.markdown-source-view.mod-cm6 .cm-active::after
 .CodeMirror-activeline .CodeMirror-activeline-background::after {
   content: ' ';
   background: transparent;
