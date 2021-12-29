@@ -1795,6 +1795,34 @@ span.cm-formatting-quote-6,
 .HyperMD-table-row.HyperMD-table-row-0:hover .cm-hmd-table-sep {
   color: var(--color-purple-3);
 }
+/* Embeds */
+.markdown-source-view .markdown-embed,
+.markdown-source-view .file-embed {
+  border: none;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+.markdown-source-view .markdown-embed .markdown-embed-link {
+  display: none;
+}
+.markdown-source-view .markdown-embed .markdown-embed-link {
+  display: block;
+}
+.markdown-source-view .markdown-embed .markdown-embed-content {
+  border-left: 2px solid var(--color-magic-gold);
+  border-radius: 0.5rem;
+  border-right: 1px solid var(--color-magic-gold);
+}
+.markdown-source-view .internal-embed[src="Footer"] .markdown-embed-title {
+  display: none;
+}
+.markdown-source-view .internal-embed[src="Footer"] .markdown-embed-content {
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid var(--color-hot-pink);
+  border-top: 1px solid var(--color-hot-pink);
+}
 /* Comments */
 .markdown-source-view.mod-cm6 .cm-comment,
 .cm-s-obsidian span.cm-comment {
@@ -1851,6 +1879,7 @@ span.cm-formatting-quote-6,
 .workspace-leaf-resize-handle:hover {
   background: var(--color-magic-gold);
 }
+
 
 /* 11 Animations */
 @keyframes activeline-r1 {
