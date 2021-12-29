@@ -1563,30 +1563,31 @@ span.cm-formatting-quote-6,
 .HyperMD-list-line-3 .list-bullet::before,
 .HyperMD-list-line-4 .list-bullet::before,
 .HyperMD-list-line-5 .list-bullet::before,
-.HyperMD-list-line-6 .list-bullet::before {
+.HyperMD-list-line-6 .list-bullet::before,
+.markdown-source-view.mod-cm6 .list-bullet::after {
   content: '\2192';
 }
-.HyperMD-list-line-1 .list-bullet::before,
+.HyperMD-list-line-1 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-1 .cm-formatting-list {
   color: var(--color-purple-3);
 }
-.HyperMD-list-line-2 .list-bullet::before,
+.HyperMD-list-line-2 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-2 .cm-formatting-list {
   color: var(--color-hot-pink);
 }
-.HyperMD-list-line-3 .list-bullet::before,
+.HyperMD-list-line-3 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-3 .cm-formatting-list {
   color: var(--color-shadowy-gold);
 }
-.HyperMD-list-line-4 .list-bullet::before,
+.HyperMD-list-line-4 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-4 .cm-formatting-list {
   color: var(--color-green);
 }
-.HyperMD-list-line-5 .list-bullet::before,
+.HyperMD-list-line-5 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-5 .cm-formatting-list {
   color: var(--color-teal);
 }
-.HyperMD-list-line-6 .list-bullet::before,
+.HyperMD-list-line-6 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-6 .cm-formatting-list {
   color: var(--color-cyan-desat);
 }
