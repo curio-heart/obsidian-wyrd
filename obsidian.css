@@ -1060,13 +1060,59 @@ input,
 .cm-hmd-frontmatter.cm-overlay.cm-spell-error {
   background-image: none;
 }
+/* Edit — Gutters */
+.markdown-source-view.mod-cm6 .cm-gutters {
+  background-color: transparent !important;
+}
+/* Edit — Cursors */
+.cm-s-obsidian .cm-cursor,
+.cm-s-obsidian .cm-dropCursor {
+  border-left-color: var(--color-magic-gold);
+  box-shadow: 0 0 2px var(--text-normal);
+}
+.cm-s-obsidian .cm-cursor-primary {
+  box-shadow: 0 0 2px var(--color-teal);
+}
 /* Edit — Line */
 .cm-s-obsidian .cm-line,
 .cm-s-obsidian .CodeMirror-line {
   position: relative;
 }
 /* Edit — Active Line */
-.markdown-source-view.mod-cm6 .cm-active::before,
+.markdown-source-view.mod-cm6 .cm-cursor::before,
+.markdown-source-view.mod-cm6 .cm-cursor::after {
+  content: ' ';
+  background: transparent;
+  display: block;
+  height: calc(var(--editor-font-size) * 0.75);
+  left: calc(var(--editor-font-size) * 0.8);
+  opacity: 0.25;
+  position: absolute;
+  top: calc(var(--editor-font-size) * 0.3);
+  visibility: visible;
+  width: calc(var(--editor-font-size) * 0.75);
+}
+.markdown-source-view.mod-cm6 .cm-cursor::before {
+  box-shadow: 0 1px 1px var(--color-magic-gold) inset,
+              0 1px 2px var(--color-magic-gold) inset,
+              0 1px 4px var(--color-magic-gold) inset,
+              0 1px 8px var(--color-magic-gold) inset,
+              0 1px 1px var(--color-green),
+              0 1px 2px var(--color-green),
+              0 1px 4px var(--color-green);
+  animation: activeline-r1 45s linear 0s infinite;
+}
+.markdown-source-view.mod-cm6 .cm-cursor::after {
+  transform: rotate(30deg);
+  box-shadow: 0 1px 1px var(--color-teal) inset,
+              0 1px 2px var(--color-teal) inset,
+              0 1px 4px var(--color-teal) inset,
+              0 1px 8px var(--color-teal) inset,
+              0 1px 1px var(--color-shadowy-gold),
+              0 1px 2px var(--color-shadowy-gold),
+              0 1px 4px var(--color-shadowy-gold);
+  animation: activeline-r2 60s linear 0s infinite;
+}
 .CodeMirror-activeline .CodeMirror-activeline-background::before {
   content: ' ';
   background: transparent;
@@ -1085,7 +1131,6 @@ input,
               0 1px 4px var(--color-green);
   animation: activeline-r1 45s linear 0s infinite;
 }
-.markdown-source-view.mod-cm6 .cm-active::after
 .CodeMirror-activeline .CodeMirror-activeline-background::after {
   content: ' ';
   background: transparent;
@@ -1112,15 +1157,10 @@ input,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-header {
   left: 1.5rem;
 }
-.markdown-source-view.mod-cm6 .cm-active.HyperMD-header {
+.markdown-source-view.mod-cm6 .cm-active.HyperMD-header:not(::before) {
   left: unset;
 }
-.markdown-source-view.mod-cm6 .HyperMD-header-1::before,
-.markdown-source-view.mod-cm6 .HyperMD-header-2::before,
-.markdown-source-view.mod-cm6 .HyperMD-header-3::before,
-.markdown-source-view.mod-cm6 .HyperMD-header-4::before,
-.markdown-source-view.mod-cm6 .HyperMD-header-5::before,
-.markdown-source-view.mod-cm6 .HyperMD-header-6::before {
+.markdown-source-view.mod-cm6 .HyperMD-header::before {
   left: -1.5rem;
 }
 .cm-s-obsidian .HyperMD-header-1 {
@@ -1498,7 +1538,7 @@ span.cm-formatting-quote-6,
   border-right: 1px solid var(--color-cyan-desat);
 }
 /* Edit — Lists */
-.markdown-source-view .HyperMD-list-line,
+.markdown-source-view.mod-cm6 .HyperMD-list-line,
 .CodeMirror .HyperMD-list-line {
   border-radius: 0.25rem;
   box-shadow: 1px solid var(--color-shadowy-gold);
@@ -1510,38 +1550,39 @@ span.cm-formatting-quote-6,
               0 -1px 2px var(--shadow-primary),
               0 -1px 4px var(--shadow-primary);
 }
-.list-bullet {
+.markdown-source-view.mod-cm6 .list-bullet {
   color: transparent;
+  left: unset;
 }
-.HyperMD-list-line-1 .list-bullet::before,
-.HyperMD-list-line-2 .list-bullet::before,
-.HyperMD-list-line-3 .list-bullet::before,
-.HyperMD-list-line-4 .list-bullet::before,
-.HyperMD-list-line-5 .list-bullet::before,
-.HyperMD-list-line-6 .list-bullet::before {
+.cm-s-obsidian:not(.mod-cm6) .HyperMD-list-line .list-bullet::before,
+.markdown-source-view.mod-cm6 .list-bullet::after {
   content: '\2192';
+  font-size: calc(var(--editor-font-size) * 0.6);
+  font-weight: 900;
+  left: calc(var(--editor-font-size) * -0.1);
+  top: calc(var(--editor-font-size) * 0.15);
 }
-.HyperMD-list-line-1 .list-bullet::before,
+.HyperMD-list-line-1 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-1 .cm-formatting-list {
   color: var(--color-purple-3);
 }
-.HyperMD-list-line-2 .list-bullet::before,
+.HyperMD-list-line-2 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-2 .cm-formatting-list {
   color: var(--color-hot-pink);
 }
-.HyperMD-list-line-3 .list-bullet::before,
+.HyperMD-list-line-3 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-3 .cm-formatting-list {
   color: var(--color-shadowy-gold);
 }
-.HyperMD-list-line-4 .list-bullet::before,
+.HyperMD-list-line-4 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-4 .cm-formatting-list {
   color: var(--color-green);
 }
-.HyperMD-list-line-5 .list-bullet::before,
+.HyperMD-list-line-5 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-5 .cm-formatting-list {
   color: var(--color-teal);
 }
-.HyperMD-list-line-6 .list-bullet::before,
+.HyperMD-list-line-6 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-6 .cm-formatting-list {
   color: var(--color-cyan-desat);
 }
@@ -1633,6 +1674,7 @@ span.cm-formatting-quote-6,
 .markdown-source-view.mod-cm6 .markdown-embed .external-link {
   display: inline;
 }
+.internal-link,
 .cm-s-obsidian span.cm-url,
 .cm-s-obsidian span.cm-link,
 .cm-s-obsidian span.cm-footref,
@@ -1643,6 +1685,7 @@ span.cm-formatting-quote-6,
   text-decoration: none;
   transition: var(--transition-duration-normal) color ease-in-out;
 }
+.internal-link:hover,
 .cm-s-obsidian span.cm-url:hover,
 .cm-s-obsidian span.cm-link:hover,
 .cm-s-obsidian span.cm-footref:hover,
@@ -1668,9 +1711,11 @@ span.cm-formatting-quote-6,
 .cm-s-obsidian span.cm-hmd-barelink:hover {
   color: var(--link-external-color);
 }
+.internal-link,
 .cm-s-obsidian span.cm-hmd-internal-link {
   -webkit-text-stroke: var(--text-stroke-width) var(--link-internal-color);
 }
+.internal-link:hover,
 .cm-s-obsidian span.cm-hmd-internal-link:hover {
   color: var(--link-internal-color);
 }
@@ -1750,6 +1795,34 @@ span.cm-formatting-quote-6,
 .HyperMD-table-row.HyperMD-table-row-0:hover .cm-hmd-table-sep {
   color: var(--color-purple-3);
 }
+/* Embeds */
+.markdown-source-view .markdown-embed,
+.markdown-source-view .file-embed {
+  border: none;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+}
+.markdown-source-view .markdown-embed .markdown-embed-link {
+  display: none;
+}
+.markdown-source-view .markdown-embed .markdown-embed-link {
+  display: block;
+}
+.markdown-source-view .markdown-embed .markdown-embed-content {
+  border-left: 2px solid var(--color-magic-gold);
+  border-radius: 0.5rem;
+  border-right: 1px solid var(--color-magic-gold);
+}
+.markdown-source-view .internal-embed[src="Footer"] .markdown-embed-title {
+  display: none;
+}
+.markdown-source-view .internal-embed[src="Footer"] .markdown-embed-content {
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid var(--color-hot-pink);
+  border-top: 1px solid var(--color-hot-pink);
+}
 /* Comments */
 .markdown-source-view.mod-cm6 .cm-comment,
 .cm-s-obsidian span.cm-comment {
@@ -1806,6 +1879,7 @@ span.cm-formatting-quote-6,
 .workspace-leaf-resize-handle:hover {
   background: var(--color-magic-gold);
 }
+
 
 /* 11 Animations */
 @keyframes activeline-r1 {
