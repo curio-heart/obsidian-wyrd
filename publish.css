@@ -1,5 +1,5 @@
 /**
- Wyrd v0.3.1
+ Wyrd v0.3.2
   A purple-hued, low-contrast, dual-mode theme
     created by Curio Heart for [Obsidian.md](https://obsidian.md/)
   
@@ -655,8 +655,7 @@ ol ol ol ol ol ol li::marker {
   text-decoration: none;
   color: var(--text-faint);
 }
-.markdown-preview-view ul > li.task-list-item.is-checked > ul > li,
-.markdown-preview-view.mod-cm6 ul > li.task-list-item.is-checked > ul > li {
+.markdown-preview-view ul > li.task-list-item.is-checked > ul > li {
   color: var(--text-normal);
 }
 /* 4.4 Preview — Links */
