@@ -831,6 +831,19 @@ ol ol ol ol ol ol li::marker {
   /* removes the small gap between folders and the files within them */
   display: none;
 }
+.nav-folder-children {
+  padding-left: 0.5rem;
+}
+.nav-file {
+  border: none;
+}
+.nav-file-title,
+.nav-folder-title {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  /* flex-wrap: wrap; */
+  max-width: -webkit-fill-available;
+}
 .tree-item:hover {
   box-shadow: 0 -1px 1px var(--color-hot-pink) inset,
               0 -1px 2px var(--color-hot-pink) inset,
@@ -1564,8 +1577,8 @@ span.cm-formatting-quote-6,
   content: '\2192';
   font-size: calc(var(--editor-font-size) * 0.6);
   font-weight: 900;
-  left: calc(var(--editor-font-size) * -0.1);
-  top: calc(var(--editor-font-size) * 0.15);
+  left: calc(var(--editor-font-size) * -0.2);
+  top: calc(var(--editor-font-size) * 0.25);
 }
 .HyperMD-list-line-1 .list-bullet::after,
 .HyperMD-list-line.HyperMD-list-line-1 .cm-formatting-list {
@@ -1596,9 +1609,25 @@ span.cm-formatting-quote-6,
   -webkit-appearance: none;
   filter: none;
   height: calc(var(--editor-font-size) * 0.8);
-  left: 0.25rem;
+  left: -0.55rem;
   position: relative;
   width: calc(var(--editor-font-size) * 0.8);
+}
+.markdown-source-view.mod-cm6 .HyperMD-task-line .cm-formatting-list-ol {
+  margin-right: 0.3rem;
+}
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task] .cm-list-1:not(.cm-formatting-list),
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task] .cm-list-2:not(.cm-formatting-list),
+.markdown-source-view.mod-cm6 .HyperMD-task-line[data-task] .cm-list-3:not(.cm-formatting-list) {
+  left: -0.7rem;
+  position: relative;
+}
+.markdown-source-view.mod-cm6 .cm-active.HyperMD-task-line[data-task] {
+  left: 0;
+}
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-task-line[data-task] .cm-formatting-task.cm-meta {
+  margin-right: 0.75rem;
+  margin-left: -0.3rem;
 }
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task] .task-list-item-checkbox {
   background: var(--background-primary);
