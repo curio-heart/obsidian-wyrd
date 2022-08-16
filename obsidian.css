@@ -601,7 +601,7 @@ ul ul ul ul ul ul {
 li {
   border-radius: 0.25rem;
   padding-bottom: 0.2rem;
-  padding-left: 0.6rem;
+  padding-left: 0.4rem;
   padding-right: 0.2rem;
   transition: var(--transition-duration-normal) box-shadow ease-in-out;
 }
@@ -658,6 +658,9 @@ ol ol ol ol ol ol li::marker {
 .markdown-preview-view ul > li.task-list-item.is-checked > ul > li,
 .markdown-preview-view.mod-cm6 ul > li.task-list-item.is-checked > ul > li {
   color: var(--text-normal);
+}
+.markdown-preview-view .task-list-item-checkbox {
+  margin-left: 0;
 }
 /* 4.4 Preview — Links */
 /* 4.4.1 Preview — Links — Internal */
