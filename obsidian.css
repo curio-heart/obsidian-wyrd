@@ -742,6 +742,7 @@ ol ol ol ol ol ol li::marker {
   height: 2px;
 }
 /* Preview — Tables */
+.markdown-preview-view.mod-cm6 .cm-table-widget table,
 .markdown-preview-view table {
   box-shadow: 0 -1px 1px var(--color-shadowy-gold),
               0 -1px 2px var(--color-shadowy-gold),
@@ -750,11 +751,14 @@ ol ol ol ol ol ol li::marker {
               0 -1px 8px var(--shadow-primary);
   margin: 0 auto;
 }
+.markdown-rendered th,
+.markdown-rendered td,
 .markdown-preview-view table td,
 .markdown-preview-view table th {
   border: none;
   transition: var(--transition-duration-normal) box-shadow, text-shadow ease-in-out;
 }
+.markdown-rendered thead,
 .markdown-preview-view table thead {
   box-shadow: 0 -1px 1px var(--color-shadowy-gold),
               0 -1px 2px var(--color-shadowy-gold),
@@ -763,6 +767,7 @@ ol ol ol ol ol ol li::marker {
               0 -1px 8px var(--shadow-primary),
               0 -1px 16px var(--shadow-primary);
 }
+.markdown-rendered th,
 .markdown-preview-view table th {
   font-size: 1.1rem;
   box-shadow: 0 -1px 1px var(--color-purple-3) inset,
@@ -773,6 +778,7 @@ ol ol ol ol ol ol li::marker {
                0 -1px 2px var(--color-purple-3),
                0 -1px 4px var(--color-purple-3);
 }
+.markdown-rendered th:hover,
 .markdown-preview-view table th:hover {
   box-shadow: 0 -1px 1px var(--color-purple-3) inset,
               0 -1px 2px var(--color-purple-3) inset,
@@ -784,6 +790,7 @@ ol ol ol ol ol ol li::marker {
                0 -1px 4px var(--color-purple-3),
                0 -1px 8px var(--color-purple-3);
 }
+.markdown-rendered tr:nth-child(even) td,
 .markdown-preview-view table tr:nth-child(even) td {
   font-size: 1.1rem;
   box-shadow: 0 -1px 1px var(--color-green) inset,
@@ -792,6 +799,7 @@ ol ol ol ol ol ol li::marker {
               0 -1px 8px var(--color-green) inset;
   text-shadow: 0 -1px 1px var(--color-green);
 }
+.markdown-rendered tr:nth-child(odd) td,
 .markdown-preview-view table tr:nth-child(odd) td {
   font-size: 1.1rem;
   box-shadow: 0 -1px 1px var(--color-blue) inset,
@@ -800,6 +808,7 @@ ol ol ol ol ol ol li::marker {
               0 -1px 8px var(--color-blue) inset;
   text-shadow: 0 -1px 1px var(--color-blue);
 }
+.markdown-rendered tr td:hover,
 .markdown-preview-view table tr td:hover {
   box-shadow: 0 -1px 1px var(--color-teal) inset,
               0 -1px 2px var(--color-teal) inset,
