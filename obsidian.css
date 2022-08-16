@@ -1499,8 +1499,9 @@ span.cm-formatting-quote-2,
 .cm-s-obsidian span.cm-formatting-quote-2 {
   color: var(--color-red-pink);
 }
-.markdown-source-view.mod-cm6 .HyperMD-quote-2 .cm-blockquote-border
+/* .markdown-source-view.mod-cm6 .HyperMD-quote-2 .cm-blockquote-border */
 /* .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-2 .cm-blockquote-border  */
+.markdown-source-view.mod-cm6 .HyperMD-quote span.cm-blockquote-border:nth-child(3)
 {
   border-color: var(--color-red-pink);
 }
@@ -1514,8 +1515,9 @@ span.cm-formatting-quote-3,
 .cm-s-obsidian span.cm-formatting-quote-3 {
   color: var(--color-shadowy-gold);
 }
-.markdown-source-view.mod-cm6 .HyperMD-quote.HyperMD-quote-3 .cm-quote-3 .cm-blockquote-border
+/* .markdown-source-view.mod-cm6 .HyperMD-quote-3 .cm-blockquote-border */
 /* .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote-2 .cm-blockquote-border  */
+.markdown-source-view.mod-cm6 .HyperMD-quote span.cm-blockquote-border:nth-child(7)
 {
   border-color: var(--color-shadowy-gold);
 }
@@ -1529,7 +1531,7 @@ span.cm-formatting-quote-4,
 .cm-s-obsidian span.cm-formatting-quote-4 {
   color: var(--color-green);
 }
-.markdown-source-view.mod-cm6 .HyperMD-quote.HyperMD-quote-4 .cm-quote-4 .cm-blockquote-border {
+.markdown-source-view.mod-cm6 .HyperMD-quote span.cm-blockquote-border:nth-child(11) {
   border-color: var(--color-green);
 }
 .HyperMD-quote-4,
@@ -1542,7 +1544,7 @@ span.cm-formatting-quote-5,
 .cm-s-obsidian span.cm-formatting-quote-5 {
   color: var(--color-teal);
 }
-.markdown-source-view.mod-cm6 .HyperMD-quote.HyperMD-quote-5 .cm-quote-5 .cm-blockquote-border {
+.markdown-source-view.mod-cm6 .HyperMD-quote span.cm-blockquote-border:nth-child(15) {
   border-color: var(--color-teal);
 }
 .HyperMD-quote-5,
@@ -1555,7 +1557,7 @@ span.cm-formatting-quote-6,
 .cm-s-obsidian span.cm-formatting-quote-6 {
   color: var(--color-cyan-desat);
 }
-.markdown-source-view.mod-cm6 .HyperMD-quote.HyperMD-quote-6 .cm-quote-6 .cm-blockquote-border {
+.markdown-source-view.mod-cm6 .HyperMD-quote span.cm-blockquote-border:nth-child(19) {
   border-color: var(--color-cyan-desat);
 }
 .HyperMD-quote-6,
