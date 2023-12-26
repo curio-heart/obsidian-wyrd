@@ -12,15 +12,11 @@
   1 Front matter
  */
 /**
-  1.1 Fonts
+  1.1 Links to Fonts
  */
-/* TODO: Need to change these to be base64 to make them useable offline. */
-/* Preview/Edit: Neucha */
-@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
-/* Monospace: Space Mono — NOT SELECTED FOR LIGATURES */
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-/* Headings: Birthstone */
-@import url('https://fonts.googleapis.com/css2?family=Birthstone&display=swap');
+/* Preview/Edit: Neucha — https://fonts.google.com/specimen/Neucha */
+/* Monospace: Space Mono (no ligatures) — https://fonts.google.com/specimen/Space+Mono */
+/* Headings: Birthstone — https://fonts.google.com/specimen/Birthstone */
 
 /**
   1.2 Custom list counters
